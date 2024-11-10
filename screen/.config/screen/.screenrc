@@ -1,0 +1,22 @@
+
+# Enter copy mode with Ctrl+a [
+bindkey "^[" copy
+
+# Use arrow keys to navigate in copy mode
+bindkey -m 'k' up
+bindkey -m 'j' down
+bindkey -m 'h' left
+bindkey -m 'l' right
+
+# Bind Space for starting selection
+bindkey -m ' ' begin_selection
+
+# Bind y to copy selection to screen buffer
+bindkey -m 'y' copy_selection
+
+# Bind p to paste from the screen buffer
+bindkey "^]" paste
+
+# Custom command to copy to clipboard
+# Replace `pbcopy` with `xclip -selection clipboard` or `xsel --clipboard --input` on Linux
+bind y eval "writebuf" "exec sh -c 'screen-exchange -o | pbcopy'"
