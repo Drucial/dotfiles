@@ -1,0 +1,17 @@
+
+# Ignore zsh history and session files
+.zsh_history
+.zsh_sessions/
+
+# Ignore zsh completion dumps
+.zcompdump-*
+.zcompdump-*.zwc
+
+# Ignore other temporary or user-specific files
+# .zprofile
+# .zshrc
+
+# Ignore all .zsh scripts if they are not meant for version control
+# *.zsh
+
+keys.zsh
