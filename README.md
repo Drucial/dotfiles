@@ -1,6 +1,6 @@
 # Drucial Dotfiles
 
-![CleanShot 2024-11-10 at 16 17 38@2x](https://github.com/user-attachments/assets/f109e7bf-7832-4791-a36c-780a1ecd57a0)
+![CleanShot 2024-11-10 at 16 20 13@2x](https://github.com/user-attachments/assets/e9e48663-fef0-4b0e-944f-44c6899fe6aa)
 
 Welcome to my personal dotfiles repository! This repository contains configuration files for various applications and tools I use on my machine. The setup is managed using GNU Stow for easy symlink management.
 
