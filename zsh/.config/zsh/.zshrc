@@ -75,6 +75,3 @@ function keep_prompt_at_bottom() {
 function precmd() {
   keep_prompt_at_bottom
 }
-
-# Prompt setup
-# PROMPT='%n@%m %1~ %# '

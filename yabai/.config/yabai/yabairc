@@ -1,60 +1,87 @@
 #!/usr/bin/env sh
 
+# Load Yabai scripting addition
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-yabai -m config external_bar               all:36:0       \
-                mouse_follows_focus        off            \
-                focus_follows_mouse        on             \
-                window_zoom_persist        off            \
-                window_placement           second_child   \
-                window_shadow              float          \
-                window_opacity             on             \
-                window_opacity_duration    0.2            \
-                window-border              off            \
-                active_window_opacity      0.9            \
-                normal_window_opacity      0.8            \
-                window_animation_duration  0.5            \
-                window_animation_easing    ease_out_quint \
-                insert_feedback_color      0xff9dd274     \
-                split_ratio                0.50           \
-                auto_balance               on             \
-                mouse_modifier             fn             \
-                mouse_action1              move           \
-                mouse_action2              resize         \
-                mouse_drop_action          swap           \
-                layout                     bsp            \
-                                                          \
-                top_padding                8              \
-                bottom_padding             8              \
-                left_padding               8              \
-                right_padding              9              \
-                window_gap                 8
+# Function to apply Yabai configuration settings
+apply_yabai_config() {
+  local yabai_config=(
+    -m config
 
-# Exclude specific applications being opacified
-yabai -m rule --add app="^Arc" opacity=1.0
-yabai -m rule --add app="^Zen Browser$" opacity=0.0
+    layout bsp
+    auto_balance off
+    split_ratio 0.50
 
-# Exclude specific applications from being managed
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Software Update$" manage=off
-yabai -m rule --add app="^Dictionary$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^App Store$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add app="^Notion Calendar$" manage=off
-yabai -m rule --add app="^Tuple$" manage=off
-yabai -m rule --add app="^Messages$" manage=off
-yabai -m rule --add app="^Logi Options+$" manage=off
-yabai -m rule --add app="^Mail$" manage=off
-yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+    insert_feedback_color 0xff9dd274
 
-yabai -m config layout bsp
+    focus_follows_mouse autoraise
+    mouse_follows_focus on
+    mouse_modifier ctrl
+    mouse_action1 move
+    mouse_action2 resize
+    mouse_drop_action swap
+
+    top_padding 8
+    bottom_padding 8
+    left_padding 8
+    right_padding 9
+    window_gap 8
+    external_bar all:36:0
+
+    active_window_opacity 0.9
+    normal_window_opacity 0.8
+    
+    window_placement second_child
+    window_shadow float
+    window_opacity on
+    window_opacity_duration 0.2
+    window-border off
+    window_zoom_persist off
+    window_animation_duration 0.5
+    window_animation_easing ease_out_quint
+  )
+
+  yabai "${yabai_config[@]}"
+}
+
+# Function to add application-specific rules
+add_yabai_rules() {
+  # Exclude specific applications from being opacified
+  yabai -m rule --add app="^Arc" opacity=1.0
+  yabai -m rule --add app="^Zen Browser$" opacity=0.0
+
+  # Exclude specific windows by title
+  yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+  yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+  yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+  yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+
+  # Exclude specific applications from being managed
+  apps_to_exclude=(
+    "^Calculator$"
+    "^Software Update$"
+    "^Dictionary$"
+    "^System Preferences$"
+    "^System Settings$"
+    "^Archive Utility$"
+    "^App Store$"
+    "^Raycast$"
+    "^Activity Monitor$"
+    "^Notion Calendar$"
+    "^Tuple$"
+    "^Messages$"
+    "^Logi Options+$"
+    "^Mail$"
+  )
+
+  for app in "${apps_to_exclude[@]}"; do
+    yabai -m rule --add app="$app" manage=off
+  done
+}
+
+# Apply configuration and rules
+apply_yabai_config
+add_yabai_rules
 
 echo "yabai configuration loaded.."
