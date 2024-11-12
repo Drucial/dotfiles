@@ -47,14 +47,8 @@ source ~/.config/zsh/git.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.scripts/set_terminal_tab_title.sh
 
-# Updates outdated brew packages after runing brew commands
-function brew() {
-  command brew "$@" 
-
-  if [[ $* =~ "upgrade" ]] || [[ $* =~ "update" ]] || [[ $* =~ "outdated" ]]; then
-    sketchybar --trigger brew_update
-  fi
-}
+# Updates outdated brew packages after running brew commands
+source ~/.config/brew/brew_update.sh
 
 # Hyperdirmic utility commands
 alias organize='source ./scripts/venv/bin/activate && PYTHONPATH=./scripts python -m src.main'
