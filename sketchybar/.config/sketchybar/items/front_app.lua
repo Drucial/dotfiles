@@ -54,7 +54,7 @@ front_app:subscribe("mouse.exited", function(env)
     sbar.animate("elastic", 10, function()
         front_app:set({
             background = {
-                color = colors.bar.bg,
+                color = colors.transparent,
             },
             icon = {
                 padding_left = 0,

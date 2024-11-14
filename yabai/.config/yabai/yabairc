@@ -15,7 +15,7 @@ apply_yabai_config() {
 
     insert_feedback_color 0xff9dd274
 
-    focus_follows_mouse autoraise
+    focus_follows_mouse off
     mouse_follows_focus on
     mouse_modifier ctrl
     mouse_action1 move
