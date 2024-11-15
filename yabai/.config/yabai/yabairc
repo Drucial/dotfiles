@@ -9,7 +9,7 @@ apply_yabai_config() {
   local yabai_config=(
     -m config
 
-    layout bsp
+    layout float
     auto_balance off
     split_ratio 0.50
 
@@ -48,36 +48,37 @@ apply_yabai_config() {
 # Function to add application-specific rules
 add_yabai_rules() {
   # Exclude specific applications from being opacified
-  yabai -m rule --add app="^Arc" opacity=1.0
-  yabai -m rule --add app="^Zen Browser$" opacity=0.0
+  yabai -m rule --add app="^Arc$" opacity=1.0
+  yabai -m rule --add app="^Zen Browser$" opacity=1.0
+  yabai -m rule --add app="^Figma$" opacity=1.0
 
   # Exclude specific windows by title
-  yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-  yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-  yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-  yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+  # yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+  # yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+  # yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+  # yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
 
   # Exclude specific applications from being managed
-  apps_to_exclude=(
-    "^Calculator$"
-    "^Software Update$"
-    "^Dictionary$"
-    "^System Preferences$"
-    "^System Settings$"
-    "^Archive Utility$"
-    "^App Store$"
-    "^Raycast$"
-    "^Activity Monitor$"
-    "^Notion Calendar$"
-    "^Tuple$"
-    "^Messages$"
-    "^Logi Options+$"
-    "^Mail$"
-  )
-
-  for app in "${apps_to_exclude[@]}"; do
-    yabai -m rule --add app="$app" manage=off
-  done
+#   apps_to_exclude=(
+#     "^Calculator$"
+#     "^Software Update$"
+#     "^Dictionary$"
+#     "^System Preferences$"
+#     "^System Settings$"
+#     "^Archive Utility$"
+#     "^App Store$"
+#     "^Raycast$"
+#     "^Activity Monitor$"
+#     "^Notion Calendar$"
+#     "^Tuple$"
+#     "^Messages$"
+#     "^Logi Options+$"
+#     "^Mail$"
+#   )
+#
+#   for app in "${apps_to_exclude[@]}"; do
+#     yabai -m rule --add app="$app" manage=off
+#   done
 }
 
 # Apply configuration and rules

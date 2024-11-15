@@ -1,4 +1,4 @@
-# Last updated: Tue Nov 12 09:15:25 EST 2024
+# Last updated: Thu Nov 14 15:02:13 EST 2024
 tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -42,6 +42,7 @@ brew "tree-sitter"
 brew "neovim"
 brew "node"
 brew "nowplaying-cli"
+brew "nushell"
 brew "openslide"
 brew "tmux"
 brew "overmind"
