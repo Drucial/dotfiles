@@ -1,0 +1,78 @@
+# Aura Themed Color Scheme
+
+accent: "#a277ff"
+background: "#15141b"
+foreground: "#edecee"
+details: "darker"
+terminal_colors:
+  normal:
+    black: "#110f18"
+    red: "#ff6767"
+    green: "#61ffca"
+    yellow: "#ffca85"
+    blue: "#61ffca"
+    magenta: "#a277ff"
+    cyan: "#edecee"
+    white: "#edecee"
+  bright:
+    black: "#4d4d4d"
+    red: "#ffca85"
+    green: "#a277ff"
+    yellow: "#ffca85"
+    blue: "#a277ff"
+    magenta: "#a277ff"
+    cyan: "#61ffca"
+    white: "#edecee"
+
+# Default color scheme
+# background:
+#   top: "#060A28"
+#   bottom: "#020412"
+# accent: "#5ED8FF"
+# foreground: "#FFFFFF"
+# details: darker
+# terminal_colors:
+#   normal:
+#     black: "#030517"
+#     red: "#FF4E4E"
+#     green: "#C0FE3D"
+#     yellow: "#FEEC4B"
+#     blue: "#00C2FF"
+#     magenta: "#FF3C77"
+#     cyan: "#69FEE3"
+#     white: "#FFFFFF"
+#   bright:
+#     black: "#43465D"
+#     red: "#FF6D6D"
+#     green: "#D0FF63"
+#     yellow: "#FFFF6D"
+#     blue: "#4DDFFF"
+#     magenta: "#FF6DB3"
+#     cyan: "#9DFFF7"
+#     white: "#FFFFFF"
+
+# background:
+#   top: "#0b0c0f"       # Mapped from CyberdreamColorDefault bg
+#   bottom: "#0E0F13"    # Mapped from CyberdreamColorDefault bgAlt
+# accent: "#26BBD9"      # Mapped from CyberdreamColorDefault blue
+# foreground: "#D5D8DA"  # Mapped from CyberdreamColorDefault fg
+# details: "darker"      # This remains unchanged
+# terminal_colors:
+#   normal:
+#     black: "#0b0c0f"   # Mapped from CyberdreamColorDefault bg
+#     red: "#E95678"     # Mapped from CyberdreamColorDefault red
+#     green: "#29D398"   # Mapped from CyberdreamColorDefault green
+#     yellow: "#FAB795"  # Mapped from CyberdreamColorDefault yellow
+#     blue: "#26BBD9"    # Mapped from CyberdreamColorDefault blue
+#     magenta: "#EE64AC" # Mapped from CyberdreamColorDefault magenta
+#     cyan: "#59E1E3"    # Mapped from CyberdreamColorDefault cyan
+#     white: "#D5D8DA"   # Mapped from CyberdreamColorDefault fg
+#   bright:
+#     black: "#eaeaea"   # Mapped from CyberdreamColorLight bgAlt
+#     red: "#d11500"     # Mapped from CyberdreamColorLight red
+#     green: "#008b0c"   # Mapped from CyberdreamColorLight green
+#     yellow: "#997b00"  # Mapped from CyberdreamColorLight yellow
+#     blue: "#0057d1"    # Mapped from CyberdreamColorLight blue
+#     magenta: "#d100bf" # Mapped from CyberdreamColorLight magenta
+#     cyan: "#008c99"    # Mapped from CyberdreamColorLight cyan
+#     white: "#16181a"   # Mapped from CyberdreamColorLight fg
