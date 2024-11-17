@@ -29,7 +29,7 @@ apply_yabai_config() {
     window_gap 8
     external_bar all:36:0
 
-    active_window_opacity 0.9
+    active_window_opacity 0.95
     normal_window_opacity 0.8
     
     window_placement second_child
