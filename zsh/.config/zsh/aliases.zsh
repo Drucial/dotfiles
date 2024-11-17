@@ -109,3 +109,16 @@ alias closework='~/.scripts/work_teardown.sh'
 alias note='cd ~/Notes && nvim ~/Notes/$(date +"%B_%d_%Y").md'
 alias editnotes='cd ~/Notes && nvim ~/Notes'
 alias notes='ls --tree ~/Notes'
+
+#-------------------
+# Functions
+#-------------------
+
+alias addalias='add_alias'
+alias removealias='remove_alias'
+alias updatealiasname='update_alias_name'
+alias updatealiascommand='update_alias_command'
+
+#-------------------
+# Generated Aliases
+#-------------------
