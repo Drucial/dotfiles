@@ -20,15 +20,15 @@ return {
 		vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
 		-- transparent backgrounds
 		vim.cmd([[
-      augroup MyColors
-        autocmd!
-        autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
-        autocmd ColorScheme * highlight NonText ctermbg=none guibg=none
-        autocmd ColorScheme * highlight LineNr ctermbg=none guibg=none
-        autocmd ColorScheme * highlight Folded ctermbg=none guibg=none
-        autocmd ColorScheme * highlight EndOfBuffer ctermbg=none guibg=none
-      augroup END
-    ]])
+			augroup MyColors
+				autocmd!
+				autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
+				autocmd ColorScheme * highlight NonText ctermbg=none guibg=none
+				autocmd ColorScheme * highlight LineNr ctermbg=none guibg=none
+				autocmd ColorScheme * highlight Folded ctermbg=none guibg=none
+				autocmd ColorScheme * highlight EndOfBuffer ctermbg=none guibg=none
+			augroup END
+		]])
 
 		-- Set the NvimTree background to transparent
 		vim.cmd([[ autocmd ColorScheme * highlight NvimTreeNormal ctermbg=none guibg=none ]])

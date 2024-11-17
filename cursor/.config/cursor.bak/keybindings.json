@@ -1,0 +1,218 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "cmd+shift+o",
+    "command": "workbench.action.openRecent"
+  },
+  // Vim like navigation app wide
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+
+  // Nvim behavior for paging down and up
+  {
+    "key": "ctrl+down",
+    "command": "cursorPageDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "cursorPageUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "list.focusPageDown",
+    "when": "listFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "list.focusPageUp",
+    "when": "listFocus"
+  },
+
+  // View open 'buffers' similar to <leader>bb in vim but for non editor windows as well
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.showAllEditors",
+    "when": "vim.mode == 'Normal'"
+  },
+
+  // Removes conflicting keybindings for showAllEditors command
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+
+  // View cmdline popoup for vimcmdline
+  {
+    "key": "shift+;",
+    "command": "vim.showQuickpickCmdLine",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+
+  // Show, focus, hide fileExplorer
+  {
+    "key": "ctrl+n",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "viewContainer.workbench.view.explorer.enabled && filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-cursorDown",
+    "when": "textInputFocus"
+  },
+
+  // File explorer behaviors
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+
+  // Toggle the terminal and associated behaviors
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+
+  // New terminal
+  {
+    "key": "ctrl+alt+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocusInAny"
+  },
+
+  // Navigate terminal splits and terminal groups
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+
+  // Maximize the termainal
+  {
+    "key": "ctrl+cmd+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
+  },
+
+  // Kill terminal (only when more than one terminal exists)
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocusInAny && terminalCount > 1"
+  },
+  // hide the last terminal but keep it live
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocusInAny && terminalCount == 1"
+  },
+
+  // Prevents window closing when closing a terminal window
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeActiveEditor"
+  },
+  // {
+  //   "key": "shift+left",
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": { "text": "\u001b[1;2D" },
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "shift+right",
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": { "text": "\u001b[1;2C" },
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "cmd+shift+left", // Use "ctrl+shift+left" on Windows
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": { "text": "\u001b[1;3D" },
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "cmd+shift+right", // Use "ctrl+shift+right" on Windows
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": { "text": "\u001b[1;3C" },
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+left",
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": { "text": "\u001b[1;5D" },
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+right",
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": { "text": "\u001b[1;5C" },
+  //   "when": "terminalFocus"
+  // },
+
+  // Which-key controls
+  {
+    "key": "backspace",
+    "command": "whichkey.undoKey",
+    "when": "whichkeyVisible"
+  },
+  {
+    "key": "ctrl+=",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "ctrl+cmd+o",
+    "command": "workbench.action.gotoSymbol",
+    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  },
+  {
+    "key": "shift+cmd+o",
+    "command": "-workbench.action.gotoSymbol",
+    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  }
+]

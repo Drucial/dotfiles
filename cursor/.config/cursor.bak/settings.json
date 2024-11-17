@@ -1,0 +1,164 @@
+{
+  // Window Settings
+  "window.title": "${rootName}${separator}${activeFolderShort}${separator}${activeEditorShort} ${dirty}",
+  "window.titleSeparator": " → ",
+  "window.restoreWindows": "none",
+  "window.restoreFullscreen": false,
+  "workbench.startupEditor": "none",
+
+  // Cleanup the noise
+  "editor.minimap.enabled": false,
+  "window.commandCenter": false,
+  "gitlens.statusBar.enabled": false,
+  "git.enableStatusBarSync": false,
+  "gitlens.statusBar.pullRequests.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.editor.showTabs": "none",
+  "breadcrumbs.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.orientation": "vertical", // Incase you do want to see it and still use ctrl+[h,j,k,l] to navigate
+
+  // Zen Mode
+  "zenMode.fullScreen": false,
+  "zenMode.showTabs": "none",
+
+  // Workbench Settings
+  "workbench.list.smoothScrolling": true,
+  "editor.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.scrollback": 10000,
+  "cursor.chat.smoothStreaming": true,
+
+  // Explorer Settings
+  "explorer.autoReveal": false,
+  "explorer.expandSingleFolderWorkspaces": false,
+  "explorer.compactFolders": true,
+
+  // Editor Settings
+  "files.hotExit": "off",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 13,
+  "terminal.integrated.fontSize": 13,
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.restoreViewState": false,
+
+  // Cursor Settings
+  "editor.cursorStyle": "block",
+  "editor.multiCursorLimit": 100,
+  "editor.cursorBlinking": "smooth",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyleInactive": "none",
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.normal": "block",
+  "editor.cursorSmoothCaretAnimation": "on",
+
+  // Terminal Settings
+  "terminal.integrated.tabs.title": "${sequence}${separator}${workspaceFolderName}",
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.hideOnStartup": "always",
+  "terminal.integrated.localEchoExcludePrograms": [
+    "vim",
+    "vi",
+    "nano",
+    "tmux",
+    // "nvim"
+  ],
+
+  // Themes
+  "workbench.colorTheme": "Aura Soft Dark",
+  "workbench.preferredDarkColorTheme": "Aura Soft Dark",
+  "workbench.preferredHighContrastColorTheme": "Aura Dark",
+  "workbench.iconTheme": "eq-material-theme-icons-ocean",
+  "workbench.colorCustomizations": {
+    "[Aura Soft Dark]": {
+      "titleBar.activeBackground": "#21202E",
+      "statusBar.background": "#21202E",
+      "statusBar.noFolderBackground": "#21202E",
+      "sideBar.background": "#21202E",
+      "sideBarTitle.background": "#21202E",
+      "activityBar.background": "#21202E",
+      "panel.background": "#21202e",
+      "titleBar.border": "#3A3855",
+      "statusBar.border": "#3A3855",
+      "sideBar.border": "#3A3855",
+      "activityBar.border": "#3A3855",
+      "panel.border": "#454364",
+      "editorGroup.border": "#454364",
+      "editor.lineHighlightBackground": "#ffffff08",
+      "editor.selectionBackground": "#A277ff35",
+      "terminal.inactiveSelectionBackground": "#A277ff35",
+      "editor.inactiveSelectionBackground": "#A277ff35"
+    }
+  },
+
+  // Custom Fonts for the whole ui
+  "apc.font.family": "JetBrainsMono Nerd Font",
+
+  "apc.monospace.font.family": "JetBrainsMono Nerd Font",
+  "apc.parts.font.family": {
+    "sidebar": "JetBrainsMono Nerd Font",
+    "titlebar": "JetBrainsMono Nerd Font",
+    "activityBar": "JetBrainsMono Nerd Font",
+    "panel": "JetBrainsMono Nerd Font",
+    "tabs": "JetBrainsMono Nerd Font",
+    "statusbar": "JetBrainsMono Nerd Font",
+    "settings-body": "JetBrainsMono Nerd Font",
+    "extension-editor": "JetBrainsMono Nerd Font", // Install the font and restart vscode
+    "monaco-menu": "JetBrainsMono Nerd Font",
+    "auxiliarybar": "JetBrainsMono Nerd Font"
+  },
+
+  // Vim Settings
+  "vim.leader": " ",
+  "vim.easymotion": true,
+  "vim.replaceWithRegister": true,
+  "vim.useSystemClipboard": true,
+
+  // Trigger which-key menu
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+
+  // Git Settings
+  "git.openRepositoryInParentFolders": "always",
+
+  // Formatters:
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.allowChords": false,
+  "cursor.cmdk.useThemedDiffBackground": true,
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "window.openWithoutArgumentsInNewWindow": "on",
+  "cursor.chat.defaultNoContext": true,
+  "cursor.terminal.usePreviewBox": true
+}

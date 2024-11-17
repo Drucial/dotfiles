@@ -51,8 +51,8 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
-          { name = "copilot"},
-          { name = "treesitter" },
+					{ name = "copilot" },
+					{ name = "treesitter" },
 				}),
 			})
 		end,

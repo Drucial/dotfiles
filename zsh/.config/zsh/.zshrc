@@ -69,3 +69,17 @@ function keep_prompt_at_bottom() {
 function precmd() {
   keep_prompt_at_bottom
 }
+
+fzf_history_paste() {
+  local selected_command
+  # Use fzf to select a command from history, stripping the leading number
+  selected_command=$(history | fzf | awk '{$1=""; print substr($0,2)}')
+  if [ -n "$selected_command" ]; then
+    # Copy the selected command to the clipboard using pbcopy
+    echo -n "$selected_command" | pbcopy
+    echo "Command copied to clipboard. Use Cmd+V to paste it into the terminal."
+  else
+    echo "No command selected."
+  fi
+}
+alias fh=fzf_history_paste
