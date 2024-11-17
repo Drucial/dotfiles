@@ -4,9 +4,11 @@
   "window.titleSeparator": " → ",
   "window.restoreWindows": "none",
   "window.restoreFullscreen": false,
+  "window.openWithoutArgumentsInNewWindow": "on",
   "workbench.startupEditor": "none",
 
   // Cleanup the noise
+  "breadcrumbs.enabled": false,
   "editor.minimap.enabled": false,
   "window.commandCenter": false,
   "gitlens.statusBar.enabled": false,
@@ -15,9 +17,19 @@
   "workbench.layoutControl.enabled": false,
   "workbench.editor.editorActionsLocation": "hidden",
   "workbench.editor.showTabs": "none",
-  "breadcrumbs.enabled": false,
   "workbench.activityBar.location": "hidden",
   "workbench.activityBar.orientation": "vertical", // Incase you do want to see it and still use ctrl+[h,j,k,l] to navigate
+  "files.exclude": {
+    "**/node_modules": true
+  },
+
+  // Cursor Chat
+  "cursor.chat.defaultNoContext": true,
+  "cursor.terminal.usePreviewBox": true,
+  "cursor.cmdk.useThemedDiffBackground": true,
+
+  // Git Settings
+  "git.openRepositoryInParentFolders": "always",
 
   // Zen Mode
   "zenMode.fullScreen": false,
@@ -39,8 +51,8 @@
   "files.hotExit": "off",
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontSize": 13,
-  "terminal.integrated.fontSize": 13,
-  "workbench.editor.empty.hint": "hidden",
+  "editor.lineNumbers": "relative",
+  "vim.smartRelativeLine": true,
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.restoreViewState": false,
 
@@ -55,16 +67,19 @@
   "editor.cursorSmoothCaretAnimation": "on",
 
   // Terminal Settings
+  "terminal.integrated.fontSize": 13,
+  "workbench.editor.empty.hint": "hidden",
   "terminal.integrated.tabs.title": "${sequence}${separator}${workspaceFolderName}",
   "terminal.integrated.tabs.location": "left",
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.hideOnStartup": "always",
+  "terminal.integrated.allowChords": false,
   "terminal.integrated.localEchoExcludePrograms": [
     "vim",
     "vi",
     "nano",
     "tmux",
-    // "nvim"
+    "nvim"
   ],
 
   // Themes
@@ -131,8 +146,250 @@
     }
   ],
 
-  // Git Settings
-  "git.openRepositoryInParentFolders": "always",
+  // Which Key Bindings
+  "whichkey.bindingOverrides": [
+    {
+      "keys": " ",
+      "name": "Commands",
+      "type": "bindings",
+      "command": "",
+      "display": "hidden"
+    },
+    {
+      "keys": "c",
+      "name": "+Code",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "Code Actions",
+          "type": "command",
+          "command": "editor.action.quickFix"
+        },
+        {
+          "key": "f",
+          "name": "Format Document",
+          "type": "command",
+          "command": "editor.action.formatDocument"
+        },
+        {
+          "key": "r",
+          "name": "Find References",
+          "type": "command",
+          "command": "editor.action.goToReferences"
+        },
+        {
+          "key": "d",
+          "name": "Peek Definition",
+          "type": "command",
+          "command": "editor.action.peekDefinition"
+        },
+        {
+          "key": "D",
+          "name": "Go to Definition (split)",
+          "type": "command",
+          "command": "editor.action.revealDefinitionAside"
+        },
+        {
+          "key": "i",
+          "name": "Show Info",
+          "type": "command",
+          "command": "editor.action.showHover"
+        },
+        {
+          "key": "s",
+          "name": "Trigger Suggest",
+          "type": "command",
+          "command": "editor.action.triggerSuggest"
+        },
+        {
+          "key": "R",
+          "name": "Rename Symbol",
+          "type": "command",
+          "command": "editor.action.rename"
+        },
+        {
+          "key": "t",
+          "name": "Peek Type Definition",
+          "type": "command",
+          "command": "editor.action.peekTypeDefinition"
+        },
+        {
+          "key": "T",
+          "name": "Go to Type Definition",
+          "type": "command",
+          "command": "editor.action.goToTypeDefinition"
+        },
+        {
+          "key": "o",
+          "name": "Organize Imports",
+          "type": "command",
+          "command": "editor.action.organizeImports"
+        },
+        {
+          "key": "m",
+          "name": "Show Problems",
+          "type": "command",
+          "command": "workbench.actions.view.problems"
+        }
+      ]
+    },
+    {
+      "keys": "f",
+      "name": "+Find/Files",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Find File",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+        },
+        {
+          "key": "b",
+          "name": "Find Open Buffer",
+          "type": "command",
+          "command": "workbench.action.showAllEditors"
+        },
+        {
+          "key": "s",
+          "name": "Search String in Files",
+          "type": "command",
+          "command": "workbench.action.quickTextSearch"
+        },
+        {
+          "key": "D",
+          "name": "Delete current file",
+          // "icon": "trash",
+          "type": "commands",
+          "commands": [
+            "workbench.files.action.showActiveFileInExplorer",
+            "deleteFile"
+          ]
+        },
+        {
+          "key": "t",
+          "name": "Toggle tree/explorer view",
+          // "icon": "list-tree",
+          "type": "conditional",
+          "bindings": [
+            {
+              "key": "",
+              "name": "Show explorer view",
+              "type": "command",
+              "command": "workbench.view.explorer"
+            },
+            {
+              "key": "when:sideBarVisible && explorerViewletVisible",
+              "name": "Hide side bar",
+              "type": "command",
+              "command": "workbench.action.toggleSidebarVisibility"
+            }
+          ]
+        },
+        {
+          "key": "T",
+          "name": "Show active file in tree/explorer view",
+          // "icon": "list-tree",
+          "type": "command",
+          "command": "workbench.files.action.showActiveFileInExplorer"
+        },
+        {
+          "key": "S",
+          "name": "Save all files",
+          // "icon": "save-all",
+          "type": "command",
+          "command": "workbench.action.files.saveAll"
+        }
+      ]
+    },
+    {
+      "keys": "s",
+      "name": "+Surround",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "w",
+          "name": "Surround word",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "i", "w"]
+          }
+        },
+        {
+          "key": "l",
+          "name": "Surround line",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "s"]
+          }
+        },
+        {
+          "key": "e",
+          "name": "Surround to end of line",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "$"]
+          }
+        },
+        {
+          "key": "p",
+          "name": "Surround paragraph",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "i", "p"]
+          }
+        },
+        {
+          "key": "d",
+          "name": "Delete surrounding",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["d", "s"]
+          }
+        },
+        {
+          "key": "c",
+          "name": "Change surrounding",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["c", "s"]
+          }
+        },
+        {
+          "key": "t",
+          "name": "Tag operations",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "t",
+              "name": "Surround with tag",
+              "type": "command",
+              "command": "vim.remap",
+              "args": {
+                "after": ["S", "t"]
+              }
+            },
+            {
+              "key": "c",
+              "name": "Change surrounding tag",
+              "type": "command",
+              "command": "vim.remap",
+              "args": {
+                "after": ["c", "s", "t", "<"]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
 
   // Formatters:
   "[javascript]": {
@@ -153,12 +410,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.integrated.allowChords": false,
-  "cursor.cmdk.useThemedDiffBackground": true,
-  "files.exclude": {
-    "**/node_modules": true
-  },
-  "window.openWithoutArgumentsInNewWindow": "on",
-  "cursor.chat.defaultNoContext": true,
-  "cursor.terminal.usePreviewBox": true
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  }
 }

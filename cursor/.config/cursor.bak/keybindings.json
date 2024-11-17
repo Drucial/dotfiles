@@ -85,7 +85,7 @@
   {
     "key": "a",
     "command": "explorer.newFile",
-    "when": "filesExplorerFocus"
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "r",
@@ -137,7 +137,8 @@
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocusInAny && terminalCount > 1"
   },
-  // hide the last terminal but keep it live
+
+  // Hide the last terminal but keep it live
   {
     "key": "cmd+w",
     "command": "workbench.action.terminal.toggleTerminal",
@@ -154,42 +155,6 @@
     "key": "cmd+w",
     "command": "-workbench.action.closeActiveEditor"
   },
-  // {
-  //   "key": "shift+left",
-  //   "command": "workbench.action.terminal.sendSequence",
-  //   "args": { "text": "\u001b[1;2D" },
-  //   "when": "terminalFocus"
-  // },
-  // {
-  //   "key": "shift+right",
-  //   "command": "workbench.action.terminal.sendSequence",
-  //   "args": { "text": "\u001b[1;2C" },
-  //   "when": "terminalFocus"
-  // },
-  // {
-  //   "key": "cmd+shift+left", // Use "ctrl+shift+left" on Windows
-  //   "command": "workbench.action.terminal.sendSequence",
-  //   "args": { "text": "\u001b[1;3D" },
-  //   "when": "terminalFocus"
-  // },
-  // {
-  //   "key": "cmd+shift+right", // Use "ctrl+shift+right" on Windows
-  //   "command": "workbench.action.terminal.sendSequence",
-  //   "args": { "text": "\u001b[1;3C" },
-  //   "when": "terminalFocus"
-  // },
-  // {
-  //   "key": "ctrl+shift+left",
-  //   "command": "workbench.action.terminal.sendSequence",
-  //   "args": { "text": "\u001b[1;5D" },
-  //   "when": "terminalFocus"
-  // },
-  // {
-  //   "key": "ctrl+shift+right",
-  //   "command": "workbench.action.terminal.sendSequence",
-  //   "args": { "text": "\u001b[1;5C" },
-  //   "when": "terminalFocus"
-  // },
 
   // Which-key controls
   {
@@ -214,5 +179,10 @@
     "key": "shift+cmd+o",
     "command": "-workbench.action.gotoSymbol",
     "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-deleteLeft",
+    "when": "textInputFocus"
   }
 ]
