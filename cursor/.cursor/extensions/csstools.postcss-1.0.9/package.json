@@ -1,0 +1,104 @@
+{
+	"name": "postcss",
+	"version": "1.0.9",
+	"displayName": "PostCSS Language Support",
+	"description": "Syntax highlighting for modern and experimental CSS in VSCode",
+	"author": "Jonathan Neal <jonathantneal@hotmail.com>",
+	"publisher": "csstools",
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/csstools/postcss-language.git"
+	},
+	"homepage": "https://github.com/csstools/postcss-language#readme",
+	"bugs": "https://github.com/csstools/postcss-language/issues",
+	"icon": "icon.png",
+	"galleryBanner": {
+		"color": "#293845",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.18.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "postcss",
+				"configuration": "./postcss.language.configuration.json",
+				"aliases": [
+					"PostCSS",
+					"pcss"
+				],
+				"extensions": [
+					".css",
+					".pcss",
+					".postcss"
+				],
+				"mimetypes": [
+					"text/css",
+					"text/x-pcss",
+					"text/pcss"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"scopeName": "source.css",
+				"path": "./syntaxes/source.css.tmLanguage.json",
+				"language": "postcss"
+			},
+			{
+				"scopeName": "text.html.markdown.css",
+				"path": "./syntaxes/text.html.markdown.css.tmLanguage.json",
+				"injectTo": [
+					"text.html.markdown"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.css": "postcss"
+				}
+			}
+		]
+	},
+	"keywords": [
+		"css",
+		"cssnext",
+		"csswg",
+		"experimental",
+		"future",
+		"grammar",
+		"html",
+		"language",
+		"logical",
+		"markdown",
+		"marko",
+		"md",
+		"modern",
+		"next",
+		"postcss",
+		"postcss-preset-env",
+		"spec",
+		"specification",
+		"stage",
+		"style",
+		"syntax",
+		"tag",
+		"vscode",
+		"w3c"
+	],
+	"__metadata": {
+		"id": "80def04d-6d01-495b-9d59-4ad19408872f",
+		"publisherId": "12124fac-8185-4b27-9cad-a662f8f3ecdd",
+		"publisherDisplayName": "csstools",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1731776828731,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}

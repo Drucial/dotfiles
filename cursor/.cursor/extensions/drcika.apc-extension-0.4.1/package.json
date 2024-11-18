@@ -1,0 +1,480 @@
+{
+	"name": "apc-extension",
+	"displayName": "Apc Customize UI++",
+	"description": "Advanced VSCode user interface customizations. Very experimental.",
+	"icon": "logo.png",
+	"version": "0.4.1",
+	"repository": "https://github.com/drcika/apc-extension",
+	"publisher": "drcika",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.92.0"
+	},
+	"categories": [
+		"Themes",
+		"Other"
+	],
+	"keywords": [
+		"custom",
+		"customise",
+		"UI",
+		"activity bar",
+		"interface",
+		"titlebar",
+		"activitybar"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "apc.extension.enable",
+				"title": "Enable Apc extension"
+			},
+			{
+				"command": "apc.extension.disable",
+				"title": "Disable Apc extension"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Apc",
+			"properties": {
+				"apc.font.family": {
+					"type": "string"
+				},
+				"apc.monospace.font.family": {
+					"type": "string"
+				},
+				"apc.parts.font.family": {
+					"type": "object",
+					"properties": {
+						"monaco-menu": {
+							"type": "string"
+						},
+						"banner": {
+							"type": "string"
+						},
+						"titlebar": {
+							"type": "string"
+						},
+						"statusbar": {
+							"type": "string"
+						},
+						"panel": {
+							"type": "string"
+						},
+						"extension-editor": {
+							"type": "string"
+						},
+						"settings-body": {
+							"type": "string"
+						},
+						"auxiliarybar": {
+							"type": "string"
+						},
+						"tabs": {
+							"type": "string"
+						},
+						"sidebar": {
+							"type": "string"
+						}
+					}
+				},
+				"apc.listRow": {
+					"type": "object",
+					"properties": {
+						"fontSize": {
+							"type": "number",
+							"default": 13
+						},
+						"height": {
+							"type": "number",
+							"default": 22
+						},
+						"lists": {
+							"type": "array",
+							"default": [
+								"customview-tree",
+								"results",
+								"open-editors",
+								"explorer-folders-view",
+								"outline-tree",
+								"scm-view",
+								"debug-view-content",
+								"debug-breakpoints",
+								"tree"
+							],
+							"items": {
+								"type": "string",
+								"enum": [
+									"customview-tree",
+									"tabs-list",
+									"results",
+									"open-editors",
+									"explorer-folders-view",
+									"tree",
+									"outline-tree",
+									"scm-view",
+									"debug-view-content",
+									"debug-breakpoints",
+									"settings-toc-wrapper",
+									"settings-tree-container",
+									"quick-input-list",
+									"monaco-table",
+									"select-box-dropdown-list-container",
+									"extensions-list",
+									"notifications-list-container"
+								]
+							}
+						},
+						"parts": {
+							"type": "object",
+							"format": {
+								"fontSize": {
+									"type": "number",
+									"default": 13
+								},
+								"height": {
+									"type": "number",
+									"default": 22
+								},
+								"input": {
+									"type": "number",
+									"default": 34,
+									"description": "Only for scm-view"
+								},
+								"actionButton": {
+									"type": "number",
+									"default": 34,
+									"description": "Only for scm-view"
+								}
+							}
+						}
+					}
+				},
+				"apc.iframe.style": {
+					"type": [
+						"string",
+						"object"
+					]
+				},
+				"apc.imports": {
+					"type": "array",
+					"description": "Css files are watched in real time, no need to restart the application",
+					"items": {
+						"type": [
+							"string",
+							"object"
+						]
+					}
+				},
+				"apc.stylesheet": {
+					"type": "object",
+					"markdownDescription": "Additional stylesheet definitions.\n```\n\"apc.stylesheet\" : {\n\t\"body\" : {\n\t\t\"font-size\": \"12px\"\n\t}\n}\n```\n"
+				},
+				"apc.statusBar": {
+					"type": "object",
+					"properties": {
+						"fontSize": {
+							"type": "number",
+							"default": 12
+						},
+						"height": {
+							"type": "number",
+							"default": 22
+						},
+						"position": {
+							"type": "string",
+							"enum": [
+								"top",
+								"bottom",
+								"editor-top",
+								"editor-bottom"
+							],
+							"default": "bottom"
+						}
+					}
+				},
+				"apc.activityBar": {
+					"type": "object",
+					"properties": {
+						"size": {
+							"type": "number",
+							"default": 48
+						},
+						"itemSize": {
+							"type": "number",
+							"description": "Works only if apc.activityBar.size is specified, default apc.activityBar.size"
+						},
+						"itemMargin": {
+							"type": "number",
+							"default": 3
+						},
+						"position": {
+							"type": "string",
+							"enum": [
+								"bottom"
+							]
+						}
+					}
+				},
+				"apc.menubar.compact": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enables compact menu bar on macos"
+				},
+				"apc.electron": {
+					"type": "object",
+					"description": "see https://www.electronjs.org/docs/latest/tutorial/window-customization",
+					"properties": {
+						"frame": {
+							"description": "see https://www.electronjs.org/docs/latest/tutorial/window-customization",
+							"type": "boolean",
+							"default": true
+						},
+						"transparent": {
+							"description": "see https://www.electronjs.org/docs/latest/tutorial/window-customization",
+							"type": "boolean",
+							"default": false
+						},
+						"opacity": {
+							"type": "number",
+							"default": 1,
+							"description": "Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS."
+						},
+						"vibrancy": {
+							"description": "macos - Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window. Note that appearance-based, light, dark, medium-light, and ultra-dark have been deprecated and will be removed in an upcoming version of macOS.",
+							"type": "string",
+							"enum": [
+								"appearance-based",
+								"light",
+								"dark",
+								"titlebar",
+								"selection",
+								"menu",
+								"popover",
+								"sidebar",
+								"medium-light",
+								"ultra-dark",
+								"header",
+								"sheet",
+								"window",
+								"hud",
+								"fullscreen-ui",
+								"tooltip",
+								"content",
+								"under-window",
+								"under-page"
+							]
+						},
+						"backgroundMaterial": {
+							"description": "windows - This sets the window's system-drawn background material, including behind the non-client area. This is only supported on WIndows 11 22H@ and up.",
+							"type": "string",
+							"enum": [
+								"auto",
+								"none",
+								"mica",
+								"acrylic",
+								"tabbed"
+							]
+						},
+						"visualEffectState": {
+							"description": "macos - Specify how the material appearance should reflect window activity state on macOS. Must be used with the vibrancy property.",
+							"type": "string",
+							"enum": [
+								"followWindow",
+								"active",
+								"inactive"
+							]
+						},
+						"backgroundColor": {
+							"description": "Color in Hex, RGB, RGBA, HSL, HSLA or named CSS color format. The alpha channel is optional for the hex type. default light theme #fff, dark theme #000",
+							"type": "string"
+						},
+						"titleBarStyle": {
+							"description": "see https://www.electronjs.org/docs/latest/tutorial/window-customization",
+							"type": "string",
+							"enum": [
+								"hidden",
+								"hiddenInset",
+								"customButtonsOnHover"
+							]
+						},
+						"trafficLightPosition": {
+							"description": "see https://www.electronjs.org/docs/latest/tutorial/window-customization",
+							"type": "object",
+							"properties": {
+								"x": {
+									"type": "number"
+								},
+								"y": {
+									"type": "number"
+								}
+							}
+						},
+						"titleBarOverlay": {
+							"description": "see https://www.electronjs.org/docs/latest/tutorial/window-customization",
+							"type": [
+								"object",
+								"boolean"
+							],
+							"properties": {
+								"color": {
+									"type": "string",
+									"format": "color"
+								},
+								"symbolColor": {
+									"type": "string",
+									"format": "color"
+								},
+								"height": {
+									"type": "number"
+								}
+							}
+						}
+					}
+				},
+				"apc.header": {
+					"type": "object",
+					"properties": {
+						"fontSize": {
+							"type": "number",
+							"default": 13
+						},
+						"height": {
+							"type": "number",
+							"default": 35
+						},
+						"default": {
+							"type": "number",
+							"default": 35
+						},
+						"compact": {
+							"type": "number",
+							"default": 22
+						}
+					}
+				},
+				"apc.sidebar.titlebar": {
+					"type": "object",
+					"properties": {
+						"fontSize": {
+							"type": "number",
+							"default": 11
+						},
+						"height": {
+							"type": "number",
+							"default": 35
+						}
+					}
+				},
+				"apc.theme": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"color": {
+								"type": "string",
+								"format": "color"
+							},
+							"tokens": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"apc.buttons": {
+					"type": "array",
+					"description": "Views to include on the status bar with associated icons",
+					"default": [],
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"text": "string",
+							"tooltip": {
+								"type": [
+									"string",
+									"null"
+								]
+							},
+							"vscommand": {
+								"type": [
+									"string",
+									"null"
+								]
+							},
+							"command": {
+								"type": [
+									"string",
+									"null"
+								]
+							},
+							"priority": {
+								"type": [
+									"number",
+									"null"
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"extensionKind": [
+		"ui"
+	],
+	"scripts": {
+		"start": "tsc -watch -p ./",
+		"package": "vsce package",
+		"publish": "vsce publish",
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.1.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.77.0",
+		"@typescript-eslint/eslint-plugin": "^5.56.0",
+		"@typescript-eslint/parser": "^5.56.0",
+		"@vscode/test-electron": "^2.3.0",
+		"eslint": "^8.36.0",
+		"mocha": "^10.2.0",
+		"ts-loader": "^9.4.2",
+		"typescript": "^4.9.5",
+		"vsce": "^2.15.0"
+	},
+	"__metadata": {
+		"id": "c445982f-a615-472b-a90e-0a9edd88b8e8",
+		"publisherId": "4339fafa-4bed-499a-af81-4eb425456c60",
+		"publisherDisplayName": "drcika",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1731800254459,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}

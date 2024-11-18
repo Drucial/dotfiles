@@ -1,0 +1,394 @@
+{
+	"name": "figma-vscode-extension",
+	"publisher": "figma",
+	"displayName": "Figma for VS Code",
+	"description": "Bring Figma into the text editor. Inspect designs, receive notifications, and get code suggestions.",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/figma/figma",
+		"directory": "vscode-extension"
+	},
+	"icon": "resources/vscode-icon.png",
+	"license": "SEE LICENSE IN LICENSE",
+	"version": "0.4.0",
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Snippets",
+		"Formatters",
+		"Other"
+	],
+	"tags": [
+		"components",
+		"figma",
+		"design",
+		"design system",
+		"design tokens"
+	],
+	"galleryBanner": {
+		"color": "#f4f4f4"
+	},
+	"qna": "https://help.figma.com/hc/en-us/articles/15023121296151",
+	"bugs": {
+		"email": "support@figma.com",
+		"url": "https://help.figma.com/"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"pricing": "Trial",
+	"main": "./out/figma-for-vs-code.js",
+	"contributes": {
+		"menus": {
+			"editor/title": [
+				{
+					"command": "figma.gotoRelatedComponentForCurrentFile",
+					"group": "navigation",
+					"when": "figma.showRelatedLinkIcon"
+				}
+			],
+			"view/title": [
+				{
+					"command": "figma.selectOrg",
+					"group": "navigation",
+					"when": "figma.loggedIn && figma.userOrgs > 0 && (view == figma.views.files || view == figma.views.notifications)"
+				},
+				{
+					"command": "figma.logout",
+					"group": "_navigation",
+					"when": "figma.loggedIn && view == figma.views.files"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "figma.openUrl",
+				"title": "Open Design File",
+				"category": "Figma"
+			},
+			{
+				"command": "figma.createRelatedLinkForCurrentFile",
+				"title": "Link Code to Selected Design",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.removeRelatedLinkForCurrentFile",
+				"title": "Remove Link from Code to Design",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.gotoRelatedComponentForCurrentFile",
+				"title": "Go to Linked Design",
+				"category": "Figma",
+				"icon": {
+					"light": "./resources/logo-gutter.svg",
+					"dark": "./resources/logo-gutter.svg"
+				}
+			},
+			{
+				"command": "figma.logout",
+				"title": "Log Out",
+				"category": "Figma"
+			},
+			{
+				"command": "figma.quickPickLayer",
+				"title": "Select Layer",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.selectNextLayer",
+				"title": "Select Next Layer",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.selectPreviousLayer",
+				"title": "Select Previous Layer",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.expandLayer",
+				"title": "Expand Selected Layer",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.selectParentLayer",
+				"title": "Select Parent Layer",
+				"category": "Figma",
+				"enablement": "figma.extensionOpen"
+			},
+			{
+				"command": "figma.selectOrg",
+				"title": "Select Organization...",
+				"icon": "$(filter)",
+				"category": "Figma",
+				"enablement": "figma.loggedIn && figma.userOrgs > 0"
+			},
+			{
+				"command": "figma.disabledCommand",
+				"title": "Disabled Command",
+				"enablement": "false"
+			},
+			{
+				"command": "figma.saveDebugInformation",
+				"category": "Figma",
+				"title": "Save Debug Information"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "figma.selectPreviousLayer",
+				"key": "ctrl+cmd+up"
+			},
+			{
+				"command": "figma.selectNextLayer",
+				"key": "ctrl+cmd+down"
+			},
+			{
+				"command": "figma.expandLayer",
+				"key": "ctrl+cmd+right"
+			},
+			{
+				"command": "figma.selectParentLayer",
+				"key": "ctrl+cmd+left"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "figma",
+					"title": "Figma",
+					"icon": "resources/logo-sidebar.svg"
+				}
+			]
+		},
+		"views": {
+			"figma": [
+				{
+					"id": "figma.views.login",
+					"name": "Log In To Figma",
+					"when": "!figma.loggedIn"
+				},
+				{
+					"id": "figma.views.dummyLoginNotifications",
+					"name": "Figma",
+					"when": "!figma.loggedIn",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "figma.views.files",
+					"name": "Files",
+					"when": "figma.loggedIn"
+				},
+				{
+					"id": "figma.views.notifications",
+					"name": "Notifications",
+					"type": "webview",
+					"when": "figma.loggedIn"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "figma.views.login",
+				"contents": "Figma for VS Code is not compatible with your version of Visual Studio Code.\n\nPlease install an updated version of VS Code by checking for updates or [downloading the latest version](https://code.visualstudio.com/download).\n[Check for updates](command:update.checkForUpdate)",
+				"when": "figma.isUnsupportedVersion"
+			},
+			{
+				"view": "figma.views.login",
+				"contents": "Log in to your Figma account to inspect design files and see notifications.\n[Log in](command:figma.clickLogin)\n",
+				"when": "!figma.loggingIn && !figma.isUnsupportedVersion"
+			},
+			{
+				"view": "figma.views.login",
+				"contents": "Continue logging into Figma with your browser.\n\nIf you have any issues, [please contact the Figma team](https://help.figma.com/hc/en-us/requests/new?ticket_form_id=360001744374).\n[Restart login flow](command:figma.clickStartAgain)\n",
+				"when": "figma.loggingIn && !figma.isUnsupportedVersion"
+			}
+		],
+		"icons": {
+			"figma-download": {
+				"description": "download",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E800"
+				}
+			},
+			"figma-frame": {
+				"description": "frame",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E801"
+				}
+			},
+			"figma-group": {
+				"description": "group",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E802"
+				}
+			},
+			"figma-horizontal": {
+				"description": "horizontal",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E803"
+				}
+			},
+			"figma-image": {
+				"description": "image",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E804"
+				}
+			},
+			"figma-instance": {
+				"description": "instance",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E805"
+				}
+			},
+			"figma-vertical": {
+				"description": "vertical",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E806"
+				}
+			},
+			"figma-text": {
+				"description": "text",
+				"default": {
+					"fontPath": "resources/icons/icons.woff",
+					"fontCharacter": "\\E807"
+				}
+			}
+		},
+		"configuration": {
+			"title": "Figma",
+			"properties": {
+				"figma.autocompleteBlocks": {
+					"type": "boolean",
+					"default": false,
+					"description": "[Experimental] Get multi-line code block suggestions based on your cursor position."
+				},
+				"figma.autocompleteProperties": {
+					"type": "boolean",
+					"default": true,
+					"description": "Get line-by-line property suggestions—like variables, colors and dimensions—as you type."
+				},
+				"figma.assetExportDirectory": {
+					"type": "string",
+					"default": "public/images",
+					"description": "Directory where exported assets are saved"
+				},
+				"figma.assetPublicPath": {
+					"type": "string",
+					"default": "/images",
+					"description": "Assets are served from this server path. This is used to construct the asset URL on the clipboard"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"build-deps": "pnpm run --recursive --filter '{.}^...' build",
+		"pretest": "pnpm run compile && pnpm run lint",
+		"esbuild:base": "esbuild ./src/extension.ts --bundle --sourcemap --outfile=out/figma-for-vs-code.js --external:vscode --external:fsevents --format=cjs --platform=node --define:GIT_COMMIT=\\\"`git rev-parse HEAD`\\\"",
+		"compile:dev": "pnpm run esbuild:base --define:DEBUG_BUILD=true --define:ENVIRONMENT=\\\"dev\\\" --define:INTERNAL_BUILD=true --define:DISABLE_SENTRY=true --define:JS_MINIFIED=false",
+		"compile:staging": "pnpm run esbuild:base --minify --define:DEBUG_BUILD=false --define:ENVIRONMENT=\\\"staging\\\" --define:USE_DEV_WEBVIEW_SERVER=false --define:DISABLE_SENTRY=false --define:JS_MINIFIED=true",
+		"compile:staging-debug": "pnpm run esbuild:base --define:DEBUG_BUILD=true --define:ENVIRONMENT=\\\"staging\\\" --define:INTERNAL_BUILD=true --define:USE_DEV_WEBVIEW_SERVER=false --define:DISABLE_SENTRY=true --define:JS_MINIFIED=false",
+		"compile:prod": "pnpm run esbuild:base --minify --define:DEBUG_BUILD=false --define:ENVIRONMENT=\\\"prod\\\" --define:USE_DEV_WEBVIEW_SERVER=false --define:DISABLE_SENTRY=false --define:JS_MINIFIED=true",
+		"compile:prod-debug": "pnpm run esbuild:base --define:DEBUG_BUILD=true --define:ENVIRONMENT=\\\"prod\\\" --define:INTERNAL_BUILD=true --define:USE_DEV_WEBVIEW_SERVER=false --define:DISABLE_SENTRY=false --define:JS_MINIFIED=false",
+		"lint": "eslint src --ext .js,.ts",
+		"test": "node ./out/test/runTest.js",
+		"test:jest": "jest",
+		"tsc": "tsc",
+		"watch": "tsc -watch",
+		"check": "pnpm run tsc && pnpm run lint",
+		"package-release": "pnpm install --recursive --frozen-lockfile --filter '{.}' && pnpm run package:all",
+		"package:all": "pnpm run package:staging && pnpm run package:prod-internal && pnpm run package:prod",
+		"package:local": "trap 'mv package.json.bak package.json' EXIT; cp package.json package.json.bak && npx ts-node scripts/filter-package-json-for-build --include-internal-commands && mkdir -p dist-local && pnpm run build:dev && vsce package --no-dependencies --out dist-local/local_vscode-extension-`pnpm pkg get version | sed 's/\"//g'`.vsix",
+		"package:staging": "trap 'mv package.json.bak package.json' EXIT; cp package.json package.json.bak && npx ts-node scripts/filter-package-json-for-build --include-internal-commands && mkdir -p dist-staging && pnpm run build:staging-internal && vsce package --no-dependencies --out dist-staging/staging_vscode-extension-`pnpm pkg get version | sed 's/\"//g'`.vsix",
+		"package:prod-internal": "trap 'mv package.json.bak package.json' EXIT; cp package.json package.json.bak && npx ts-node scripts/filter-package-json-for-build --include-internal-commands && mkdir -p dist-prod && pnpm run build:prod-debug && vsce package --no-dependencies --out dist-prod/prod_internal_vscode-extension-`pnpm pkg get version | sed 's/\"//g'`.vsix",
+		"package:prod": "trap 'mv package.json.bak package.json' EXIT; cp package.json package.json.bak && npx ts-node scripts/filter-package-json-for-build && mkdir -p dist-prod && pnpm run build:prod-release && vsce package --no-dependencies --out dist-prod/prod_vscode-extension-`pnpm pkg get version | sed 's/\"//g'`.vsix",
+		"build:base": "pnpm run build:code-connect && pnpm run webviews:build && pnpm run extension-registry:build && pnpm run tsc",
+		"build:dev": "pnpm run build:base && pnpm run compile:dev --define:USE_DEV_WEBVIEW_SERVER=false",
+		"build:dev-webview-server": "pnpm run build:base && pnpm run compile:dev --define:USE_DEV_WEBVIEW_SERVER=true",
+		"build:staging": "pnpm run build:base && pnpm run compile:staging --define:INTERNAL_BUILD=true --define:DISABLE_SENTRY=true",
+		"build:staging-debug": "pnpm run build:base && pnpm run compile:staging-debug",
+		"build:staging-internal": "pnpm run build:base && pnpm run compile:staging --define:INTERNAL_BUILD=true",
+		"build:staging-release": "pnpm run build:base && pnpm run compile:staging --define:INTERNAL_BUILD=false",
+		"build:prod-release": "pnpm run build:base && pnpm run compile:prod --define:INTERNAL_BUILD=false",
+		"build:prod-internal": "pnpm run build:base && pnpm run compile:prod --define:INTERNAL_BUILD=true",
+		"build:prod-debug": "pnpm run build:base && pnpm run compile:prod-debug",
+		"webviews:build": "cd webviews && pnpm run build",
+		"webviews:start": "cd webviews && pnpm run dev",
+		"extension-registry:build": "cd ../local-extension-registry && pnpm run build",
+		"extension-registry:start": "cd ../local-extension-registry && pnpm run dev",
+		"gen-bindings": "pnpm run --filter @figma/livegraph-server gen-all-bindings-safe",
+		"build:code-connect": "pnpm run --filter @figma/code-connect build"
+	},
+	"devDependencies": {
+		"@aaaa-hello-figmate/use-pnpm-here-not-npm": "workspace:@hello-figmate/use-pnpm-here-not-npm@*",
+		"@figma/tsconfig": "workspace:^",
+		"@sentry/cli": "^2.18.1",
+		"@types/jest": "^29.5.13",
+		"@types/lodash": "^4.14.191",
+		"@types/node": "^20.14.0",
+		"@types/set-cookie-parser": "^2.4.2",
+		"@types/vscode": "^1.74.0",
+		"@types/ws": "^8.5.4",
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
+		"@typescript-eslint/parser": "^7.18.0",
+		"@vscode/test-electron": "^2.2.0",
+		"@vscode/vsce": "^2.18.0",
+		"esbuild": "0.20.2",
+		"eslint": "^8.57.1",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.2.5",
+		"typescript": "5.4.2",
+		"yargs": "^17.7.2"
+	},
+	"dependencies": {
+		"@figma/code-connect": "workspace:*",
+		"@figma/livegraph-schema": "workspace:*",
+		"@figma/permissions": "workspace:*",
+		"@sentry/integrations": "^7.53.0",
+		"@sentry/node": "^7.53.0",
+		"fetch-retry": "^6.0.0",
+		"find-up": "^5.0.0",
+		"https-proxy-agent": "^7.0.5",
+		"livegraph": "workspace:@figma/livegraph@*",
+		"local-extension-registry": "workspace:*",
+		"lodash": "^4.17.21",
+		"node-fetch": "^2.7.0",
+		"postcss": "8.4.38",
+		"set-cookie-parser": "^2.6.0",
+		"ts-morph": "^23.0.0",
+		"undici": "^5.28.4",
+		"universal-user-agent": "^7.0.2",
+		"ws": "^8.12.1",
+		"zod": "^3.23.8"
+	},
+	"extensionDependencies": [
+		"vscode.git"
+	],
+	"__metadata": {
+		"id": "bff510dc-dcac-4daf-925c-299ee91fb135",
+		"publisherId": "99d5ace2-231e-4a28-a0f2-9bc082c99e54",
+		"publisherDisplayName": "figma",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1730382488863,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}

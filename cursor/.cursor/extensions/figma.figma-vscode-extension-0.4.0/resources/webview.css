@@ -1,0 +1,93 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#iframe-container,
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+
+#figma-iframe {
+  width: 100vw;
+  height: 100vh;
+}
+
+/**
+ * We hide the loader once Figma has loaded, as it appears _on top_ of the Figma
+ * UI - this means that the transition between our loader and the Figma loader
+ * (which fades in) is seamless.
+ */
+#loader.hidden {
+  display: none;
+}
+
+/* Loader CSS copied and slightly modified from figma.com */
+
+body #loader {
+  background-color: #e6e6e6;
+  --color-loading-progress-logo: #383838;
+}
+
+body.vscode-dark #loader {
+  background-color: #1e1e1e;
+  --color-loading-progress-logo: rgba(255, 255, 255, 1);
+}
+
+.progress_bar--outer {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.progress_bar--overflowHidden {
+  overflow: hidden;
+}
+
+.progress_bar--centerContainer {
+  align-self: center;
+  position: relative;
+  width: 180px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  animation: progress_bar--fadeIn 1s both;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.progress_bar--centerContainerStatic {
+  animation: progress_bar--fadeIn 1.5s both;
+}
+
+.progress_bar--centerContainerStatic .progress_bar--strokedLogo,
+.progress_bar--centerContainerStatic .progress_bar--coloredLogo {
+  display: block;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.progress_bar--designLogoStroke .progress_bar--staticLogo {
+  fill: var(--color-loading-progress-logo, #333333);
+}

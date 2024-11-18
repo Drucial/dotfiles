@@ -1,0 +1,407 @@
+div.monaco-workbench {
+  background-color: var(--background-color);
+}
+
+.custom-list-row .monaco-list-row {
+  line-height: var(--row-height);
+  font-size: var(--row-font-size);
+}
+
+.custom-list-row .monaco-list-row .explorer-item {
+  height: 100%;
+  align-items: center;
+}
+
+.custom-list-row.open-editors .monaco-list-row .monaco-icon-label {
+  height: 100% !important;
+  line-height: var(--row-height);
+}
+
+.custom-list-row.results .monaco-list-row a {
+  line-height: var(--row-height);
+}
+
+.custom-list-row.results .monaco-list-row .badge {
+  line-height: var(--row-height);
+}
+
+.custom-list-row.results .monaco-list-row .monaco-icon-label:before {
+  line-height: var(--row-height) !important;
+}
+
+.custom-list-row.tree .monaco-list-row .contents {
+  height: 100%;
+}
+
+.custom-list-row.tree .monaco-list-row .contents .main {
+  line-height: var(--row-height) !important;
+  height: 100%;
+}
+
+/*  */
+.horizontal-activitybar .monaco-workbench .activitybar.bordered:after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  height: 0;
+  width: calc(100% - 1px);
+  border-color: inherit;
+}
+
+.inline-title-bar .monaco-workbench .activitybar.left.bordered:before {
+  border-right-color: transparent;
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar.left.bordered:before {
+  border-right-color: var(--vscode-sideBar-border);
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar.right.bordered:before {
+  border-left-color: var(--vscode-sideBar-border);
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar.right.bordered:after {
+  right: 0;
+}
+
+/*  */
+.horizontal-activitybar .monaco-workbench .activitybar.bordered:after {
+  border-top-style: solid;
+  border-top-width: 1px;
+  top: 0;
+}
+
+.horizontal-activitybar .monaco-workbench .part.activitybar {
+  width: 100%;
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar>.content {
+  flex-direction: row;
+  justify-content: unset;
+}
+
+.horizontal-activitybar .global-activity-actionbar {
+  margin-left: auto;
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar>.content .monaco-action-bar .badge .badge-content {
+  right: 0;
+  top: 0;
+}
+
+.custom-activitybar:not(.horizontal-activitybar) .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge div.badge-content {
+  right: calc(var(--activity-bar-action-item-size) / 6);
+  top: calc(var(--activity-bar-action-item-size) / 2);
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar>.content>.composite-bar {
+  margin-bottom: unset;
+}
+
+.custom-activitybar .monaco-workbench .activitybar>.content>.composite-bar .action-label,
+.custom-activitybar .monaco-workbench .activitybar>.content>.global-activity-actionbar .action-label {
+  margin: auto;
+}
+
+.horizontal-activitybar .monaco-workbench .activitybar .menubar,
+.custom-activitybar div.monaco-workbench div.activitybar>div.content div.monaco-action-bar ul.actions-container li.action-item a.action-label {
+  height: var(--activity-bar-action-item-size);
+  width: var(--activity-bar-action-item-size);
+  font-size: calc(var(--activity-bar-action-item-size) * 0.5);
+  -webkit-mask-size: 1em;
+  padding: 0;
+}
+
+.custom-activitybar:not(.horizontal-activitybar) div.monaco-workbench div.activitybar>div.content div.monaco-action-bar ul.actions-container li.action-item {
+  margin-top: var(--activity-bar-action-item-margin);
+}
+
+.horizontal-activitybar div.monaco-workbench div.activitybar>div.content div.monaco-action-bar ul.actions-container li.action-item {
+  margin-left: var(--activity-bar-action-item-margin);
+}
+
+.inline-title-bar:not(.horizontal-activitybar) .monaco-workbench:not(.fullscreen) .activitybar:not(.right) .content {
+  height: calc(100% - var(--titlebar-height)) !important;
+  width: calc(var(--activity-bar-action-size) - 1px) !important;
+  transform: translateY(var(--titlebar-height));
+}
+
+.custom-activitybar .monaco-workbench .part.activitybar {
+  width: unset;
+}
+
+/*  */
+body:not(.statusbar-editor-top) .mac.no-activity-bar.noauxiliarybar.sidebar-right .inline-tabs-placeholder,
+body:not(.statusbar-editor-top) .mac.no-activity-bar.nosidebar:not(.sidebar-right):not(.nosidebar) .inline-tabs-placeholder,
+body:not(.frameless-title-bar):not(.statusbar-editor-top) .monaco-workbench.mac.sidebar-right.noauxiliarybar .split-view-view:nth-child(1) .split-view-view:nth-child(1) .tabs-and-actions-container .inline-tabs-placeholder,
+.horizontal-activitybar.inline-title-bar:not(.statusbar-editor-top) .monaco-workbench.mac.nosidebar:not(.sidebar-right):not(.fullscreen) .inline-tabs-placeholder,
+.horizontal-activitybar.inline-title-bar:not(.statusbar-editor-top) .monaco-workbench.mac.sidebar-right.noauxiliarybar .inline-tabs-placeholder {
+  width: calc(var(--traffic-X) + 68px);
+}
+
+body:not(.statusbar-editor-top):not(.horizontal-activitybar) .mac.nosidebar:not(.sidebar-right):not(.no-activity-bar) .inline-tabs-placeholder {
+  width: calc(var(--traffic-X) + 68px - var(--activity-bar-action-size));
+}
+
+.inline-title-bar:not(.horizontal-activitybar):not(.statusbar-top) .monaco-workbench.mac:not(.fullscreen) .inline-titlebar-placeholder {
+  min-width: calc(var(--traffic-X) + 46px - var(--activity-bar-action-size));
+}
+
+.inline-title-bar:not(.horizontal-activitybar):not(.statusbar-top) .monaco-workbench.mac.no-activity-bar:not(.sidebar-right):not(.fullscreen) .inline-titlebar-placeholder,
+.horizontal-activitybar:not(.statusbar-editor-top):not(.statusbar-top) .monaco-workbench.mac.sidebar-right.noauxiliarybar:not(.fullscreen) .part.editor>.content .editor-group-container>.title:not(.tabs),
+.horizontal-activitybar:not(.frameless-title-bar):not(.statusbar-editor-top):not(.statusbar-top) .monaco-workbench.mac:not(.sidebar-right).nosidebar:not(.fullscreen) .part.editor>.content .editor-group-container>.title:not(.tabs),
+.inline-title-bar:not(.statusbar-editor-top):not(.statusbar-top) .monaco-workbench.mac.no-activity-bar:not(.sidebar-right).nosidebar:not(.fullscreen) .part.editor>.content .editor-group-container>.title:not(.tabs),
+.inline-title-bar:not(.statusbar-editor-top):not(.statusbar-top) .monaco-workbench.mac.no-activity-bar.sidebar-right.noauxiliarybar:not(.fullscreen) .part.editor>.content .editor-group-container>.title:not(.tabs),
+.inline-title-bar.statusbar-top .mac .statusbar,
+.inline-title-bar.statusbar-editor-top .monaco-workbench.mac.nosidebar:not(.sidebar-right):not(.fullscreen) .statusbar,
+.inline-title-bar.statusbar-editor-top .monaco-workbench.mac.sidebar-right.noauxiliarybar:not(.fullscreen) .statusbar {
+  padding-left: calc(var(--traffic-X) + 52px);
+}
+
+.inline-title-bar .monaco-workbench.mac:not(.sidebar-right):not(.fullscreen) .inline-titlebar-placeholder,
+.inline-title-bar .monaco-workbench.mac.no-activity-bar .inline-titlebar-placeholder {
+  min-width: calc(var(--traffic-X) + 46px);
+}
+
+.content.auxiliary .inline-tabs-placeholder,
+.no-custom-title-bar-visibility div.monaco-workbench .has-composite-bar,
+.no-activity-bar.nosidebar:not(.sidebar-right):not(.fullscreen) .inline-tabs-placeholder,
+.inline-title-bar.horizontal-activitybar .nosidebar:not(.sidebar-right).noeditorarea.monaco-workbench .part.panel.bottom .composite.title,
+.inline-title-bar .sidebar-right.noauxiliarybar.noeditorarea.monaco-workbench .part.panel.bottom .composite.title,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench.mac:not(.fullscreen) .auxiliarybar.left .composite.title,
+.inline-title-bar.statusbar-editor-top:not(.horizontal-activitybar) .monaco-workbench.mac.no-activity-bar.nosidebar:not(.sidebar-right):not(.fullscreen) .statusbar {
+  padding-left: calc(var(--traffic-X) + 68px);
+}
+
+.inline-title-bar.statusbar-editor-top:not(.horizontal-activitybar) .monaco-workbench.mac.nosidebar:not(.sidebar-right):not(.fullscreen) .statusbar {
+  padding-left: calc(var(--traffic-X) + 68px - var(--activity-bar-action-size));
+}
+
+.inline-title-bar:not(.horizontal-activitybar) .monaco-workbench div.activitybar.bordered.left .content {
+  border-color: inherit;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+body.horizontal-activitybar .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-item.checked .active-item-indicator {
+  border-bottom-color: var(--vscode-activityBar-activeBorder)
+}
+
+body.horizontal-activitybar .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-item.checked .active-item-indicator:before {
+  border-left: unset;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: inherit;
+  top: unset;
+  bottom: 2px;
+  width: 100%;
+  height: 0;
+  z-index: 8;
+}
+
+.inline-title-bar:not(.horizontal-activitybar):not(.statusbar-top) .activitybar.left .activity-bar-placeholder {
+  height: calc(var(--titlebar-height) - 1px);
+  border-bottom: 1px solid var(--title-border-bottom-color);
+}
+
+.frameless-title-bar.statusbar-top .monaco-workbench:not(.fullscreen) .statusbar .statusbar-item,
+.frameless-title-bar.statusbar-editor-top .monaco-workbench:not(.fullscreen) .statusbar .statusbar-item,
+.inline-title-bar.statusbar-top .monaco-workbench:not(.fullscreen) .statusbar .statusbar-item,
+.inline-title-bar.statusbar-editor-top .monaco-workbench:not(.fullscreen) .statusbar .statusbar-item,
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .editor-group-top .tab,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .editor-group-top .tab,
+.content.auxiliary .editor-group-top .tab {
+  -webkit-app-region: no-drag;
+}
+
+/*  */
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .editor-group-top .tabs-and-actions-container .monaco-scrollable-element,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .editor-group-top .tabs-and-actions-container .monaco-scrollable-element,
+/*  */
+.frameless-title-bar.statusbar-top .monaco-workbench:not(.fullscreen) .statusbar,
+.frameless-title-bar.statusbar-editor-top .monaco-workbench:not(.fullscreen) .statusbar,
+.inline-title-bar.statusbar-top .monaco-workbench:not(.fullscreen) .statusbar,
+.inline-title-bar.statusbar-editor-top .monaco-workbench:not(.fullscreen) .statusbar,
+/**/
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .auxiliarybar .inline-auxiliarybar-placeholder,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .auxiliarybar .inline-auxiliarybar-placeholder,
+/**/
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .sidebar .composite.title .title-label,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .sidebar .composite.title .title-label {
+  -webkit-app-region: drag;
+  cursor: move;
+}
+
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .auxiliarybar .inline-auxiliarybar-placeholder,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .auxiliarybar .inline-auxiliarybar-placeholder,
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .sidebar .composite.title .title-label,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .sidebar .composite.title .title-label {
+  display: flex;
+  flex: 1;
+}
+
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .auxiliarybar .title-actions,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .auxiliarybar .title-actions,
+.frameless-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .sidebar .composite.title .title-actions,
+.inline-title-bar:not(.statusbar-top) .monaco-workbench:not(.fullscreen) .sidebar .composite.title .title-actions {
+  flex: unset;
+}
+
+.frameless-title-bar .monaco-workbench .part.editor>.content div.editor-group-container.empty>div.tabs,
+.inline-title-bar .monaco-workbench .part.editor>.content div.editor-group-container.empty>div.tabs {
+  display: block;
+  width: 100%;
+  height: var(--editor-group-tab-height);
+  position: absolute;
+  top: 0;
+}
+
+/*  */
+.statusbar-editor-top .monaco-workbench .part.statusbar.status-border-top:after,
+.statusbar-top .monaco-workbench .part.statusbar.status-border-top:after {
+  top: unset;
+  bottom: 0;
+}
+
+.custom-statusbar .monaco-workbench .part.statusbar>.items-container>div.statusbar-item span.codicon {
+  font-size: calc(var(--status-bar-font-size) * 1.3);
+}
+
+.custom-statusbar .monaco-workbench .part.statusbar .statusbar-item-label {
+  font-size: var(--status-bar-font-size);
+}
+
+/*  */
+.custom-sidebar-titlebar .auxiliarybar,
+.custom-sidebar-titlebar .sidebar {
+  height: 100%;
+}
+
+.custom-sidebar-titlebar .auxiliarybar content,
+.custom-sidebar-titlebar .sidebar content {
+  height: 100% !important;
+}
+
+.custom-sidebar-titlebar .monaco-workbench .part.basepanel>.composite.title>.panel-switcher-container>.monaco-action-bar .action-item.checked .action-label,
+.custom-sidebar-titlebar .monaco-workbench .part.sidebar>.title>.title-label h2 {
+  line-height: var(--titlebar-height);
+  font-size: var(--titlebar-font-size);
+}
+
+.custom-sidebar-titlebar .monaco-workbench .auxiliarybar>div.composite.title,
+.custom-sidebar-titlebar .monaco-workbench .auxiliarybar>div.composite.title>div.title-actions,
+.custom-sidebar-titlebar .monaco-workbench .sidebar>div.composite.title,
+.custom-sidebar-titlebar .monaco-workbench .sidebar>div.composite.title>div.title-actions {
+  height: var(--titlebar-height);
+}
+
+.custom-sidebar-titlebar .monaco-workbench .part.sidebar>.title>div.title-label {
+  line-height: var(--titlebar-height);
+}
+
+.custom-sidebar-titlebar .auxiliarybar .composite.title,
+.custom-sidebar-titlebar .sidebar .composite.title {
+  border-bottom: 1px solid var(--title-border-bottom-color);
+}
+
+.custom-sidebar-titlebar .auxiliarybar .title .monaco-action-bar .action-item .codicon,
+.custom-sidebar-titlebar .sidebar .title .monaco-action-bar .action-item .codicon {
+  --size: calc(var(--titlebar-font-size) * 1.25);
+  background-size: var(--size);
+  width: var(--size);
+  height: var(--size);
+  font-size: var(--size);
+}
+
+.custom-sidebar-titlebar .monaco-workbench .part.auxiliarybar>.composite.title>.panel-switcher-container>div.monaco-action-bar {
+  height: var(--titlebar-height);
+  line-height: var(--titlebar-height);
+}
+
+.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a.label-name {
+  font-size: var(--header-font-size);
+}
+
+/*  */
+.custom-font-family .shadow-root-host,
+.custom-font-family .monaco-editor,
+.custom-font-family .mac,
+.custom-font-family .mac:lang(zh-Hans),
+.custom-font-family .mac:lang(zh-Hant),
+.custom-font-family .mac:lang(ja),
+.custom-font-family .mac:lang(ko),
+.custom-font-family .windows,
+.custom-font-family .windows:lang(zh-Hans),
+.custom-font-family .windows:lang(zh-Hant),
+.custom-font-family .windows:lang(ja),
+.custom-font-family .windows:lang(ko),
+.custom-font-family .linux,
+.custom-font-family .linux:lang(zh-Hans),
+.custom-font-family .linux:lang(zh-Hant),
+.custom-font-family .linux:lang(ja),
+.custom-font-family .linux:lang(ko) {
+  font-family: var(--custom-font-family)
+}
+
+.custom-monospace-font .shadow-root-host,
+.custom-monospace-font .monaco-editor,
+.custom-monospace-font .mac,
+.custom-monospace-font .windows,
+.custom-monospace-font .linux {
+  --monaco-monospace-font: var(--custom-monospace-font)
+}
+
+.custom-font-family-statusbar .statusbar {
+  font-family: var(--custom-font-family-statusbar)
+}
+
+.custom-font-family-panel .panel {
+  font-family: var(--custom-font-family-panel)
+}
+
+.custom-font-family-banner .mac .banner,
+.custom-font-family-banner .windows .banner,
+.custom-font-family-banner .linux .banner {
+  font-family: var(--custom-font-family-banner)
+}
+
+.custom-font-family-monaco-menu .mac .monaco-menu {
+  font-family: var(--custom-font-family-monaco-menu)
+}
+
+.custom-font-family-titlebar .mac .titlebar,
+.custom-font-family-titlebar .windows .titlebar,
+.custom-font-family-titlebar .linux .titlebar {
+  font-family: var(--custom-font-family-titlebar)
+}
+
+.custom-font-family-extension-editor .extension-editor {
+  font-family: var(--custom-font-family-extension-editor)
+}
+
+.custom-font-family-settings-body .settings-body .mac,
+.custom-font-family-settings-body .settings-body .windows,
+.custom-font-family-settings-body .settings-body .linux {
+  font-family: var(--custom-font-family-settings-body)
+}
+
+.custom-font-family-auxiliarybar .auxiliarybar .mac,
+.custom-font-family-auxiliarybar .auxiliarybar .windows,
+.custom-font-family-auxiliarybar .auxiliarybar .linux {
+  font-family: var(--custom-font-family-auxiliarybar)
+}
+
+.custom-font-family-tabs .tabs .windows,
+.custom-font-family-tabs .tabs .mac,
+.custom-font-family-tabs .tabs .linux {
+  font-family: var(--custom-font-family-tabs)
+}
+
+.custom-font-family-sidebar .sidebar .mac,
+.custom-font-family-sidebar .sidebar .windows,
+.custom-font-family-sidebar .sidebar .linux,
+.custom-font-family-sidebar .mac .sidebar,
+.custom-font-family-sidebar .linux .sidebar,
+.custom-font-family-sidebar .windows .sidebar {
+  font-family: var(--custom-font-family-sidebar)
+}

@@ -1,0 +1,113 @@
+{
+	"name": "pretty-ts-errors",
+	"displayName": "Pretty TypeScript Errors",
+	"publisher": "YoavBls",
+	"description": "Make TypeScript errors prettier and more human-readable in VSCode",
+	"version": "0.6.0",
+	"icon": "assets/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yoavbls/pretty-ts-errors"
+	},
+	"homepage": "https://github.com/yoavbls/pretty-ts-errors",
+	"sponsor": {
+		"url": "https://github.com/sponsors/yoavbls"
+	},
+	"engines": {
+		"vscode": "^1.77.0",
+		"node": "18.18.x"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Visualization",
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#133b55",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"onLanguage:typescript",
+		"onLanguage:javascript",
+		"onLanguage:typescriptreact",
+		"onLanguage:javascriptreact",
+		"onLanguage:astro",
+		"onLanguage:svelte",
+		"onLanguage:vue",
+		"onLanguage:mdx",
+		"onLanguage:glimmer-js",
+		"onLanguage:glimmer-ts"
+	],
+	"main": "./dist/extension.js",
+	"browser": "./dist/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "type",
+				"extensions": [
+					".type"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "type",
+				"scopeName": "source.type",
+				"path": "./syntaxes/type.tmGrammar.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "node scripts/build",
+		"watch": "npm run compile -- --watch",
+		"build": "vsce package",
+		"package": "node scripts/build -- --production",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts & tsc --noEmit",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.7.0",
+		"@types/eslint__js": "^8.42.3",
+		"@types/glob": "^8.1.0",
+		"@types/lz-string": "^1.5.0",
+		"@types/mocha": "^10.0.7",
+		"@types/node": "^20",
+		"@types/prettier": "^2.7.3",
+		"@types/vscode": "^1.70.0",
+		"@vscode/test-electron": "^2.4.1",
+		"esbuild": "^0.23.0",
+		"eslint": "^9.7.0",
+		"glob": "^8.1.0",
+		"mocha": "^10.6.0",
+		"path-browserify": "^1.0.1",
+		"typescript": "^5.5.3",
+		"typescript-eslint": "^8.0.0-alpha.44"
+	},
+	"dependencies": {
+		"lz-string": "^1.5.0",
+		"prettier": "^2.8.8",
+		"ts-dedent": "^2.2.0",
+		"typedash": "^3.2.5",
+		"vscode-languageclient": "^9.0.1",
+		"vscode-languageserver-types": "^3.17.5",
+		"vscode-uri": "^3.0.8"
+	},
+	"__metadata": {
+		"id": "1e149c89-8f97-447e-863d-1146f0ad1b70",
+		"publisherId": "0939a3c0-6896-4249-bfa3-4ff58ebaccd0",
+		"publisherDisplayName": "yoavbls",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1731776835488,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}
