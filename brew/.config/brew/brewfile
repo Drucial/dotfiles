@@ -1,4 +1,4 @@
-# Last updated: Sun Nov 17 17:28:26 EST 2024
+# Last updated: Mon Nov 18 14:30:00 EST 2024
 tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -80,6 +80,7 @@ cask "sf-symbols"
 cask "warp"
 vscode "bradlc.vscode-tailwindcss"
 vscode "bungcip.better-toml"
+vscode "chaitanyashahare.lazygit"
 vscode "christian-kohler.npm-intellisense"
 vscode "csstools.postcss"
 vscode "daltonmenezes.aura-theme"

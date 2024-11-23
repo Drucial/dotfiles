@@ -49,8 +49,10 @@ alias e_bat='nvim ~/.config/bat/config'
 
 alias ip='echo $(curl -s ipinfo.io) | jq '.'; curl -s ipinfo.io/ip | pbcopy; echo "IP address copied to cliboard."'
 alias e='nvim'
+alias y='yazi'
 alias be='bundle exec'
-alias f='fzf --preview '\''bat --color=always {}'\'' --preview-window '\''~3'\'''
+alias f='yazi'
+# alias f='fzf --preview '\''bat --color=always {}'\'' --preview-window '\''~3'\'''
 alias ff="nvim \$(fzf --preview 'bat --color=always {}' --preview-window '~3')"
 alias cat='bat'
 alias ls='lsd'
@@ -101,6 +103,7 @@ alias resizeimage='~/.scripts/resize_image.sh'
 alias renamefiles='~/.scripts/rename_files.sh'
 alias openwork='~/.scripts/work_setup.sh'
 alias closework='~/.scripts/work_teardown.sh'
+alias optimize_images='~/.scripts/process_images_for_web.sh'
 
 #-------------------
 # Notes

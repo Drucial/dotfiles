@@ -1,15 +1,27 @@
 #!/usr/bin/env sh
+SKETCHYBAR_PID=""
 
-# Load Yabai scripting addition
+cleanup() {
+    echo "Cleaning up..."
+    if [ -n "$SKETCHYBAR_PID" ]; then
+        kill "$SKETCHYBAR_PID" 2>/dev/null
+    fi
+}
+
+# Only trap SIGTERM and SIGINT, not EXIT
+trap cleanup SIGTERM SIGINT
+
+# Your existing yabai setup
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=shutdown action="pkill -x sketchybar" label="Kill SketchyBar with Yabai"
 
 # Function to apply Yabai configuration settings
 apply_yabai_config() {
   local yabai_config=(
     -m config
 
-    layout float
+    layout bsp
     auto_balance off
     split_ratio 0.50
 
@@ -29,14 +41,13 @@ apply_yabai_config() {
     window_gap 8
     external_bar all:36:0
 
-    active_window_opacity 0.95
-    normal_window_opacity 0.8
+    active_window_opacity 1.0
+    normal_window_opacity 1.0
     
     window_placement second_child
     window_shadow float
     window_opacity on
     window_opacity_duration 0.2
-    window-border off
     window_zoom_persist off
     window_animation_duration 0.5
     window_animation_easing ease_out_quint
@@ -45,44 +56,46 @@ apply_yabai_config() {
   yabai "${yabai_config[@]}"
 }
 
-# Function to add application-specific rules
+# function to add application-specific rules
 add_yabai_rules() {
-  # Exclude specific applications from being opacified
-  yabai -m rule --add app="^Arc$" opacity=1.0
-  yabai -m rule --add app="^Zen Browser$" opacity=1.0
-  yabai -m rule --add app="^Figma$" opacity=1.0
+  # specific applications with custom opacity settings
+  yabai -m rule --add app="^Cursor$" opacity=0.8
+  yabai -m rule --add app="^Visual Studio Code$" opacity=0.8
+  yabai -m rule --add app="^kitty$" opacity=0.8
 
-  # Exclude specific windows by title
-  # yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-  # yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-  # yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-  # yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+  # exclude specific applications from being managed
+  apps_to_exclude=(
+    "^calculator$"
+    "^Software Update$"
+    "^Dictionary$"
+    "^System Preferences$"
+    "^System Settings$"
+    "^System Information"
+    "^Archive Utility$"
+    "^App Store$"
+    "^Raycast$"
+    "^activity monitor$"
+    "^Messages$"
+    "^Logi Options+$"
+  )
 
-  # Exclude specific applications from being managed
-#   apps_to_exclude=(
-#     "^Calculator$"
-#     "^Software Update$"
-#     "^Dictionary$"
-#     "^System Preferences$"
-#     "^System Settings$"
-#     "^Archive Utility$"
-#     "^App Store$"
-#     "^Raycast$"
-#     "^Activity Monitor$"
-#     "^Notion Calendar$"
-#     "^Tuple$"
-#     "^Messages$"
-#     "^Logi Options+$"
-#     "^Mail$"
-#   )
-#
-#   for app in "${apps_to_exclude[@]}"; do
-#     yabai -m rule --add app="$app" manage=off
-#   done
+  for app in "${apps_to_exclude[@]}"; do
+    yabai -m rule --add app="$app" manage=off
+  done
 }
 
-# Apply configuration and rules
+# apply configuration and rules
 apply_yabai_config
 add_yabai_rules
 
-echo "yabai configuration loaded.."
+# Start SketchyBar and store its PID
+SKETCHYBAR_PATH="/opt/homebrew/bin/sketchybar"
+
+if ! pgrep -x "sketchybar" >/dev/null; then
+    echo "Starting SketchyBar..."
+    "$SKETCHYBAR_PATH" &
+    SKETCHYBAR_PID=$!
+    sleep 1
+fi
+
+echo "yabai configuration loaded..."

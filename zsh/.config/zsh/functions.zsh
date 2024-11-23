@@ -1,3 +1,23 @@
+# FZF Navigation
+
+# Function to search directories from the root
+fcd() {
+  local dir
+  #Store the current directory
+  local original_dir=$(pwd)
+  #Change to the home directory
+  cd ~ || return
+  #Run fd and fzf from the home directory
+  dir=$(fd --type d --exclude .git | fzf --preview 'tree -C -L 3 {}' --preview-window '~3') && cd "$dir"
+  #If a directory is selected, change to it; otherwise, return to the original directory
+  if [ -n "$dir" ]; then
+    cd "$dir"
+  else
+    cd "$original_dir"
+  fi
+}
+
+
 # Precmd function to move the prompt to the bottom
 function precmd() {
   echo -ne "\033[999;1H"

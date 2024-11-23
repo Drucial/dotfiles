@@ -1,0 +1,93 @@
+# [manager]
+# # Main UI colors matching Aura Soft Dark
+# cwd = { fg = "#edecee", bg = "#21202E" }
+# hovered = { fg = "#edecee", bg = "#2e2b38" }
+# preview_hovered = { fg = "#edecee", bg = "#2e2b38" }
+
+# # Search and find
+# find_keyword = { fg = "#a277ff", bold = true }
+# find_position = { fg = "#ffca85", bg = "reset" }
+
+# # Markers using Aura accent colors
+# marker_copied = { fg = "#61ffca" }
+# marker_cut = { fg = "#ff6767" }
+# marker_marked = { fg = "#a277ff" }
+# marker_selected = { fg = "#61ffca" }
+
+# # Tab styling matching VSCode
+# tab_active = { fg = "#edecee", bg = "#21202E" }
+# tab_inactive = { fg = "#adacae", bg = "#21202E" }
+# tab_width = 1
+
+# # Border styling matching your VSCode customization
+# border_symbol = "│"
+# border_style = { fg = "#3A3855" }
+
+# # File operation counters
+# count_copied = { fg = "#61ffca" }
+# count_cut = { fg = "#ff6767" }
+# count_selected = { fg = "#a277ff" }
+
+# [status]
+# separator_open = "["
+# separator_close = "]"
+# separator_style = { fg = "#3A3855" }
+
+# # Mode indicators using Aura colors
+# mode_normal = { fg = "#21202E", bg = "#a277ff" }
+# mode_select = { fg = "#21202E", bg = "#61ffca" }
+# mode_unset = { fg = "#21202E", bg = "#ff6767" }
+
+# # Progress bars
+# progress_label = { fg = "#edecee" }
+# progress_normal = { fg = "#a277ff" }
+# progress_error = { fg = "#ff6767" }
+
+# # Permission indicators
+# permissions_t = { fg = "#a277ff" }
+# permissions_r = { fg = "#61ffca" }
+# permissions_w = { fg = "#ffca85" }
+# permissions_x = { fg = "#ff6767" }
+# permissions_s = { fg = "#3A3855" }
+
+# [select]
+# border = { fg = "#3A3855" }
+# active = { fg = "#a277ff", bg = "#21202E" }
+# inactive = { fg = "#adacae", bg = "#21202E" }
+
+# [input]
+# border = { fg = "#3A3855" }
+# title = { fg = "#a277ff" }
+# value = { fg = "#edecee" }
+# selected = { fg = "#21202E", bg = "#a277ff" }
+
+# [completion]
+# border = { fg = "#3A3855" }
+# active = { fg = "#a277ff", bg = "#21202E" }
+# inactive = { fg = "#adacae", bg = "#21202E" }
+
+# [tasks]
+# border = { fg = "#3A3855" }
+# title = { fg = "#a277ff" }
+# hovered = { fg = "#edecee", bg = "#2e2b38" }
+
+# [which]
+# mask = { bg = "#21202E" }
+# cand = { fg = "#a277ff" }
+# rest = { fg = "#adacae" }
+# desc = { fg = "#edecee" }
+# separator = " → "
+# separator_style = { fg = "#3A3855" }
+
+# [help]
+# on = { fg = "#a277ff" }
+# exec = { fg = "#61ffca" }
+# desc = { fg = "#edecee" }
+# hovered = { bg = "#2e2b38", bold = true }
+# footer = { fg = "#3A3855" }
+
+# [notify]
+# title_error = { fg = "#ff6767" }
+# title_warn = { fg = "#ffca85" }
+# title_info = { fg = "#a277ff" }
+# title_debug = { fg = "#61ffca" }
