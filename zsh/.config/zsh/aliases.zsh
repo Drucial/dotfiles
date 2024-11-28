@@ -48,12 +48,12 @@ alias e_bat='nvim ~/.config/bat/config'
 #-------------------
 
 alias ip='echo $(curl -s ipinfo.io) | jq '.'; curl -s ipinfo.io/ip | pbcopy; echo "IP address copied to cliboard."'
-alias e='nvim'
+alias n='nvim'
 alias y='yazi'
 alias be='bundle exec'
 alias f='yazi'
 # alias f='fzf --preview '\''bat --color=always {}'\'' --preview-window '\''~3'\'''
-alias ff="nvim \$(fzf --preview 'bat --color=always {}' --preview-window '~3')"
+alias ff="nvim \$(fzf --preview 'bat --style=numbers --color=always {}' --preview-window '~3')"
 alias cat='bat'
 alias ls='lsd'
 alias lsl='lsd -l'

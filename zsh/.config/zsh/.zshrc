@@ -30,17 +30,19 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --e
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiQocHdkKSIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiMSIsIm1hcmdpbiI6IjEiLCJwcm9tcHQiOiLina8gIiwibWFya2VyIjoi4pa3ICIsInBvaW50ZXIiOiLina8iLCJzZXBhcmF0b3IiOiLilIAiLCJzY3JvbGxiYXIiOiIiLCJsYXlvdXQiOiJkZWZhdWx0IiwiaW5mbyI6InJpZ2h0IiwiY29sb3JzIjoiZmc6I0ZGRkZGRixmZys6I2QwZDBkMCxiZzojMDMwNTE3LGJnKzojMjgzMDM3LGhsOiM4ODk0QUQsaGwrOiM2OUZFRTMsaW5mbzojZDBkMGQwLG1hcmtlcjojZmYzYzc3LHByb21wdDojZmYzY2E2LHNwaW5uZXI6IzY5RkVFMyxwb2ludGVyOiM2OUZFRTMsaGVhZGVyOiNmZjNjYTYsZ3V0dGVyOiMwMzA1MTcsYm9yZGVyOiM4ODk0QUQsc2VwYXJhdG9yOiMyODMwMzcscHJldmlldy1ib3JkZXI6Izg4OTRBRCxwcmV2aWV3LXNjcm9sbGJhcjojMDMwNTE3LHByZXZpZXctbGFiZWw6IzY5RkVFMyxsYWJlbDojZmYzY2E2LHF1ZXJ5OiNmZmZhZmEifQ==
+# https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiIiwibWFyZ2luIjoiMCIsInByb21wdCI6IuKJiCIsIm1hcmtlciI6IuKclO+4jiIsInBvaW50ZXIiOiLihpIiLCJzZXBhcmF0b3IiOiLilIAiLCJzY3JvbGxiYXIiOiLilIIiLCJsYXlvdXQiOiJkZWZhdWx0IiwiaW5mbyI6InJpZ2h0IiwiY29sb3JzIjoiZmc6I2QwZDBkMCxmZys6I2ZmZmZmZixiZzojMjEyMDJlLGJnKzojMzYzNDRhLGhsOiNhMjc3ZmYsaGwrOiNhMzc4ZmYsaW5mbzojNGQ0ZDRkLG1hcmtlcjojNjFmZmNhLHByb21wdDojYTI3N2ZmLHNwaW5uZXI6I2ZmNjc2Nyxwb2ludGVyOiNhMjc3ZmYsaGVhZGVyOiM0ZDRkNGQsYm9yZGVyOiM0ZDRkNGQsc2VwYXJhdG9yOiM0ZDRkNGQsc2Nyb2xsYmFyOiM0ZDRkNGQscHJldmlldy1ib3JkZXI6IzRkNGQ0ZCxwcmV2aWV3LXNjcm9sbGJhcjojNGQ0ZDRkLGxhYmVsOiNhZWFlYWUscXVlcnk6I2VkZWNlZSxkaXNhYmxlZDojNGQ0ZDRkIn0=
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-   --color=fg:#FFFFFF,fg+:#d0d0d0,bg:#030517,bg+:#283037
-   --color=hl:#8894AD,hl+:#69FEE3,info:#d0d0d0,marker:#ff3c77
-   --color=prompt:#ff3ca6,spinner:#69FEE3,pointer:#69FEE3,header:#ff3ca6
-   --color=gutter:#030517,border:#8894AD,separator:#283037,preview-border:#8894AD
-   --color=preview-scrollbar:#030517,preview-label:#69FEE3,label:#ff3ca6,query:#fffafa
-   --border="rounded" --border-label="Search" --border-label-pos="0" --preview-window="border-rounded"
-   --padding="1" --margin="1" --prompt="❯ " --marker="▷ "
-   --pointer="❯" --separator="─" --scrollbar="" --info="right"'
-export FZF_DEFAULT_COMMAND='ag -g ""'
+  --color=fg:#d0d0d0,fg+:#ffffff,bg:#21202e,bg+:#36344a
+  --color=hl:#a277ff,hl+:#a378ff,info:#4d4d4d,marker:#61ffca
+  --color=prompt:#a277ff,spinner:#ff6767,pointer:#a277ff,header:#4d4d4d
+  --color=border:#4d4d4d,separator:#4d4d4d,scrollbar:#4d4d4d,preview-border:#4d4d4d
+  --color=preview-scrollbar:#4d4d4d,label:#aeaeae,query:#edecee,disabled:#4d4d4d
+  --border="rounded" --border-label="FzF" --preview-window="border-rounded" --padding="0"
+  --prompt="≈" --marker="✔︎" --pointer="→" --separator="─"
+  --scrollbar="│"
+  --layout=reverse-list
+  --info=inline'
+# export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
 
