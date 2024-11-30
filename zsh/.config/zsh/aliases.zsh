@@ -11,9 +11,9 @@ alias paintserver='cd /Users/drucial/Dev/craftwork-rails/'
 alias craftwork='cd /Users/drucial/Dev/craftwork/'
 alias hyperdirmic='cd /Users/drucial/Dev/hyperdirmic/'
 alias hypertext='cd /Users/drucial/Dev/hypertext/'
-alias ext='cd /Users/drucial/Dev/extensions/'
-alias editdots='cd Users/drucial/Dev/extensions/edit-dotfiles/'
-alias raycastyabai='cd /Users/drucial/Dev/extensions/raycast-yabai/'
+alias extensions='cd /Users/drucial/Dev/extensions/'
+alias r_dots='cd Users/drucial/Dev/extensions/edit-dotfiles/'
+alias r_yabai='cd /Users/drucial/Dev/extensions/raycast-yabai/'
 
 #-------------------
 # Locations

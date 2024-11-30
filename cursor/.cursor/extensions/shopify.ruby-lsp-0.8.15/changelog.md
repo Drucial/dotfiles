@@ -1,3 +1,19 @@
+# vscode-ruby-lsp-v0.8.15
+## ✨ Enhancements
+
+- Fallback to closest Ruby if we can't find an installation for the requested version (https://github.com/Shopify/ruby-lsp/pull/2912) by @vinistock
+
+## 🐛 Bug Fixes
+
+- Allow opting into specific feature flags (https://github.com/Shopify/ruby-lsp/pull/2931) by @vinistock
+
+## 📦 Other Changes
+
+- Extract Ruby fallback cancellable flow (https://github.com/Shopify/ruby-lsp/pull/2911) by @vinistock
+- Rollout launcher mode to 5% of users (https://github.com/Shopify/ruby-lsp/pull/2914) by @vinistock
+
+
+
 # vscode-ruby-lsp-v0.8.14
 ## ✨ Enhancements
 
@@ -123,16 +139,5 @@
 
 - Fix rescue token without explicit class (https://github.com/Shopify/ruby-lsp/pull/2578) by @vinistock
 - Never set shell on Windows for any version manager (https://github.com/Shopify/ruby-lsp/pull/2597) by @vinistock
-
-
-
-# vscode-ruby-lsp-v0.8.0
-## ✨ Enhancements
-
-- Delegate all possible features for ERB (https://github.com/Shopify/ruby-lsp/pull/2563) by @vinistock
-
-## 🐛 Bug Fixes
-
-- Use separator for activation script result (https://github.com/Shopify/ruby-lsp/pull/2552) by @vinistock
 
 

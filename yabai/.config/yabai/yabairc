@@ -28,7 +28,7 @@ apply_yabai_config() {
     insert_feedback_color 0xff9dd274
 
     focus_follows_mouse off
-    mouse_follows_focus on
+    mouse_follows_focus off
     mouse_modifier ctrl
     mouse_action1 move
     mouse_action2 resize

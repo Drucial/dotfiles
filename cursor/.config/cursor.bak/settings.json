@@ -1,14 +1,10 @@
 {
   // Window Settings
-  "window.title": "${rootName}${separator}${activeFolderShort}${separator}${activeEditorShort} ${dirty}",
+  "window.title": "${rootName}${separator}${activeFolderMedium}${separator}${activeEditorShort} ${dirty}",
   "window.titleSeparator": " → ",
   "window.restoreWindows": "none",
   "window.restoreFullscreen": false,
   "window.openWithoutArgumentsInNewWindow": "on",
-  "workbench.startupEditor": "none",
-
-  // Cleanup the noise
-  "breadcrumbs.enabled": false,
   "editor.minimap.enabled": false,
   "window.commandCenter": false,
   "gitlens.statusBar.enabled": false,
@@ -18,9 +14,12 @@
   "workbench.editor.editorActionsLocation": "hidden",
   "workbench.editor.showTabs": "none",
   "workbench.activityBar.location": "hidden",
-  "workbench.activityBar.orientation": "vertical", // Incase you do want to see it and still use ctrl+[h,j,k,l] to navigate
+  "workbench.activityBar.orientation": "vertical",
   "files.exclude": {
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.turbo": true,
+    "**/yarn-error.log": true
   },
 
   // Cursor Chat
@@ -34,6 +33,7 @@
   // Zen Mode
   "zenMode.fullScreen": false,
   "zenMode.showTabs": "none",
+  "workbench.editor.centeredLayoutFixedWidth": true,
 
   // Workbench Settings
   "workbench.list.smoothScrolling": true,
@@ -105,7 +105,8 @@
       "editor.lineHighlightBackground": "#ffffff08",
       "editor.selectionBackground": "#A277ff35",
       "terminal.inactiveSelectionBackground": "#A277ff35",
-      "editor.inactiveSelectionBackground": "#A277ff35"
+      "editor.inactiveSelectionBackground": "#A277ff35",
+      "editorStickyScroll.background": "#29263c85"
     }
   },
 
@@ -137,23 +138,92 @@
     {
       "before": ["<space>"],
       "commands": ["whichkey.show"]
+    },
+    {
+      "before": ["/", "w"],
+      "after": ["<leader>", "<leader>", "w"]
+    },
+    {
+      "before": ["/", "j"],
+      "after": ["<leader>", "<leader>", "j"]
+    },
+    {
+      "before": ["/", "k"],
+      "after": ["<leader>", "<leader>", "k"]
+    },
+    {
+      "before": ["/", "b"],
+      "after": ["<leader>", "<leader>", "b"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<space>"],
       "commands": ["whichkey.show"]
+    },
+    {
+      "before": ["/", "w"],
+      "after": ["<leader>", "<leader>", "w"]
+    },
+    {
+      "before": ["/", "j"],
+      "after": ["<leader>", "<leader>", "j"]
+    },
+    {
+      "before": ["/", "k"],
+      "after": ["<leader>", "<leader>", "k"]
+    },
+    {
+      "before": ["/", "b"],
+      "after": ["<leader>", "<leader>", "b"]
     }
   ],
 
   // Which Key Bindings
+  // "whichkey.delay": 1000,
   "whichkey.bindingOverrides": [
     {
-      "keys": " ",
-      "name": "Commands",
+      "keys": "/",
+      "name": "+EasyMotion",
       "type": "bindings",
-      "command": "",
-      "display": "hidden"
+      "bindings": [
+        {
+          "key": "w",
+          "name": "Jump to word",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "w"]
+          }
+        },
+        {
+          "key": "b",
+          "name": "Jump backward",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "b"]
+          }
+        },
+        {
+          "key": "j",
+          "name": "Jump to line below",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "j"]
+          }
+        },
+        {
+          "key": "k",
+          "name": "Jump to line above",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "k"]
+          }
+        }
+      ]
     },
     {
       "keys": "c",
@@ -186,9 +256,22 @@
         },
         {
           "key": "D",
-          "name": "Go to Definition (split)",
-          "type": "command",
-          "command": "editor.action.revealDefinitionAside"
+          "name": "Go to Definition",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "d",
+              "name": "Go to Definition",
+              "type": "command",
+              "command": "editor.action.revealDefinition"
+            },
+            {
+              "key": "s",
+              "name": "Go to Definition (split)",
+              "type": "command",
+              "command": "editor.action.revealDefinitionAside"
+            }
+          ]
         },
         {
           "key": "i",
@@ -304,6 +387,19 @@
       ]
     },
     {
+      "keys": "g",
+      "name": "+Projects",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "g",
+          "name": "Open lazygit",
+          "type": "command",
+          "command": "lazygit.openLazygit"
+        }
+      ]
+    },
+    {
       "keys": "s",
       "name": "+Surround",
       "type": "bindings",
@@ -371,10 +467,7 @@
               "key": "t",
               "name": "Surround with tag",
               "type": "command",
-              "command": "vim.remap",
-              "args": {
-                "after": ["S", "t"]
-              }
+              "command": "editor.emmet.action.wrapWithAbbreviation"
             },
             {
               "key": "c",
@@ -412,5 +505,9 @@
   },
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua"
+  },
+  "breadcrumbs.enabled": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

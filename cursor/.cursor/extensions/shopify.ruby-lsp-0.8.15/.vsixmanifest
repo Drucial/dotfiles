@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 		<Metadata>
-			<Identity Language="en-US" Id="ruby-lsp" Version="0.8.14" Publisher="Shopify" />
+			<Identity Language="en-US" Id="ruby-lsp" Version="0.8.15" Publisher="Shopify" />
 			<DisplayName>Ruby LSP</DisplayName>
 			<Description xml:space="preserve">VS Code plugin for connecting with the Ruby LSP</Description>
 			<Tags>snippet,debuggers,chat-participant,github-copilot,ruby,Ruby,__ext_rb,__ext_builder,__ext_eye,__ext_fcgi,__ext_gemspec,__ext_god,__ext_irbrc,__ext_jbuilder,__ext_mspec,__ext_pluginspec,__ext_podspec,__ext_prawn,__ext_pryrc,__ext_rabl,__ext_rake,__ext_rbi,__ext_rbuild,__ext_rbw,__ext_rbx,__ext_ru,__ext_ruby,__ext_spec,__ext_thor,__ext_watchr,erb,__ext_erb,__ext_rhtml,__ext_rhtm</Tags>
