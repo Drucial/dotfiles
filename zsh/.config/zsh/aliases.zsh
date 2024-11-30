@@ -40,8 +40,9 @@ alias e_alias='nvim ~/.config/zsh/aliases.zsh'
 alias e_warp='nvim ~/.warp/themes/Celestial.yaml'
 alias e_kitty='nvim ~/.config/kitty/kitty.conf'
 alias e_gitconfig='nvim ~/.gitconfig'
-alias e_starship='nvim ~/.config/starship.toml'
+alias e_starship='nvim ~/.config/starship/starship.toml'
 alias e_bat='nvim ~/.config/bat/config'
+alias e_yabai='nvim ~/.config/yabai/yabairc'
 
 #-------------------
 # Shortcuts

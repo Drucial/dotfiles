@@ -20,7 +20,7 @@ fcd() {
 
 # Precmd function to move the prompt to the bottom
 function precmd() {
-  echo -ne "\033[999;1H"
+  # echo -ne "\033[999;1H"
 }
 
 # Function to add a new alias
