@@ -3,14 +3,14 @@
   // Only cycle through tabs in current group
   {
     "key": "cmd+shift+]",
-    "command": "workbench.action.nextEditorInGroup"
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "editorTextFocus"
   },
   {
     "key": "cmd+shift+[",
-    "command": "workbench.action.previousEditorInGroup"
+    "command": "workbench.action.previousEditorInGroup",
   },
-
-  // remove defaulty cnflicts
+  // remove conflicting keybinds with above
   {
     "key": "cmd+shift+]",
     "command": "-workbench.action.nextEditor"
@@ -20,11 +20,13 @@
     "command": "-workbench.action.previousEditor"
   },
 
+  // Open recent
   {
     "key": "cmd+shift+o",
     "command": "workbench.action.openRecent"
   },
 
+  // LazyGit
   {
     "key": "cmd+g",
     "command": "lazygit.openLazygit"
@@ -72,11 +74,10 @@
 
   // View open 'buffers' similar to <leader>bb in vim but for non editor windows as well
   {
-    "key": "cmd+shift+b",
+    "key": "cmd+ctrl+b",
     "command": "workbench.action.showAllEditors",
     "when": "vim.mode == 'Normal'"
   },
-
   // Removes conflicting keybindings for showAllEditors command
   {
     "key": "cmd+shift+b",
@@ -93,25 +94,31 @@
 
   // Show, focus, hide fileExplorer
   {
-    "key": "ctrl+n",
+    "key": "cmd+b",
     "command": "revealInExplorer",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && !sideBarVisible"
   },
   {
-    "key": "ctrl+n",
+    "key": "cmd+b",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "filesExplorerFocus"
+    "when": "sideBarVisible"
   },
   {
-    "key": "ctrl+n",
-    "command": "-cursorDown",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+n",
+    "key": "cmd+b",
     "command": "workbench.files.action.focusFilesExplorer",
     "when": "!filesExplorerFocus && !editorTextFocus"
   },
+  {
+    "key": "cmd+n",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "when": "!filesExplorerFocus && sideBarVisible"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+
+  // Add, rename, select file in explorer
   {
     "key": "a",
     "command": "explorer.newFile",
@@ -128,10 +135,36 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
 
+  // Ai Ccursor Chat
+  {
+    "key": "cmd+l",
+    "command": "aichat.insertselectionintochat",
+    "when": "!view.workbench.panel.aichat.view.visible"
+  },
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": "view.workbench.panel.aichat.view.visible"
+  },
+  // removes conflicting keybinds for above
+  {
+    "key": "shift+cmd+l",
+    "command": "-aichat.insertselectionintochat"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-aichat.newchataction"
+  },
+
   // Toggle the terminal and associated behaviors
   {
-    "key": "ctrl+shift+t",
+    "key": "cmd+;",
     "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminal.active"
+  },
+  {
+    "key": "cmd+;",
+    "command": "workbench.action.togglePanel",
     "when": "terminal.active"
   },
   {
@@ -172,12 +205,7 @@
   {
     "key": "cmd+w",
     "command": "workbench.action.terminal.kill",
-    "when": "terminalFocusInAny && terminalCount > 1"
-  },
-  {
-    "key": "cmd+w",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminalFocusInAny && terminalCount == 1"
+    "when": "terminalEditorFocus || (terminalFocus && terminalCount > 1)"
   },
 
   // Prevents window closing when closing a terminal window in the panel
@@ -222,46 +250,33 @@
     "command": "-workbench.action.gotoSymbol",
     "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
   },
-
-  // Remove conflicting keybindings experimental
   {
-    "key": "ctrl+h",
-    "command": "-deleteLeft",
-    "when": "textInputFocus"
+    "key": "alt+z",
+    "command": "-editor.action.toggleWordWrap"
   },
   {
-    "key": "ctrl+n",
-    "command": "-list.focusDown",
-    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+    "key": "alt+z",
+    "command": "-workbench.action.terminal.sizeToContentWidth",
+    "when": "terminalFocus && terminalHasBeenCreated && terminalIsOpen || terminalFocus && terminalIsOpen && terminalProcessSupported"
   },
   {
-    "key": "ctrl+alt+n",
-    "command": "-list.focusAnyDown",
-    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+    "key": "ctrl+z",
+    "command": "workbench.action.toggleZenMode",
+    "when": "!inZenMode"
   },
   {
-    "key": "ctrl+n",
-    "command": "-workbench.action.quickOpenSelectNext",
-    "when": "inQuickOpen"
+    "key": "cmd+r z",
+    "command": "-workbench.action.toggleZenMode",
+    "when": "!isAuxiliaryWindowFocusedContext"
   },
   {
-    "key": "ctrl+n",
-    "command": "-selectNextCodeAction",
-    "when": "codeActionMenuVisible"
+    "key": "ctrl+z",
+    "command": "workbench.action.exitZenMode",
+    "when": "inZenMode"
   },
   {
-    "key": "ctrl+n",
-    "command": "-selectNextSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "-showNextParameterHint",
-    "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "-extension.vim_ctrl+n",
-    "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+    "key": "escape escape",
+    "command": "-workbench.action.exitZenMode",
+    "when": "inZenMode"
   },
 ]

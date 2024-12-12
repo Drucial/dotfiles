@@ -59,9 +59,9 @@ apply_yabai_config() {
 # function to add application-specific rules
 add_yabai_rules() {
   # specific applications with custom opacity settings
-  yabai -m rule --add app="^Cursor$" opacity=0.9
-  yabai -m rule --add app="^Visual Studio Code$" opacity=0.9
-  yabai -m rule --add app="^kitty$" opacity=0.9
+  yabai -m rule --add app="^Cursor$" opacity=0.98
+  yabai -m rule --add app="^Visual Studio Code$" opacity=0.98
+  # yabai -m rule --add app="^kitty$" opacity=0.95
 
   # exclude specific applications from being managed
   apps_to_exclude=(

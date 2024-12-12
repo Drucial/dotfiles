@@ -104,7 +104,8 @@ alias resizeimage='~/.scripts/resize_image.sh'
 alias renamefiles='~/.scripts/rename_files.sh'
 alias openwork='~/.scripts/work_setup.sh'
 alias closework='~/.scripts/work_teardown.sh'
-alias optimize_images='~/.scripts/process_images_for_web.sh'
+alias optimize_images='~/.scripts/optimize_images.sh'
+alias convert_movs='~/.scripts/convert_mov_files.sh'
 
 #-------------------
 # Notes
