@@ -1,11 +1,34 @@
 # -----------------------------
 # Environment and Path Settings
 # -----------------------------
-export PATH="$HOME/scripts:$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+# Function to add a directory to PATH if it's not already included
+add_to_path() {
+  if [[ ":$PATH:" != *":$1:"* ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
+# Add custom scripts directory
+add_to_path "$HOME/scripts"
+
+# Add Postgres binaries
+add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+# Add ASDF shims
+add_to_path "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+
+# Add PNPM home
+export PNPM_HOME="/Users/drucial/Library/pnpm"
+add_to_path "$PNPM_HOME"
+
+# Other environment variables
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 export EDITOR='nvim'
 export VISUAL='nvim'
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export DISABLE_SPRING=true
 
 # --------------
 # zsh Extensions
@@ -29,11 +52,8 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # FZF settings
-# Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-# To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiIiwibWFyZ2luIjoiMCIsInByb21wdCI6IuKJiCIsIm1hcmtlciI6IuKclO+4jiIsInBvaW50ZXIiOiLihpIiLCJzZXBhcmF0b3IiOiLilIAiLCJzY3JvbGxiYXIiOiLilIIiLCJsYXlvdXQiOiJkZWZhdWx0IiwiaW5mbyI6InJpZ2h0IiwiY29sb3JzIjoiZmc6I2QwZDBkMCxmZys6I2ZmZmZmZixiZzojMjEyMDJlLGJnKzojMzYzNDRhLGhsOiNhMjc3ZmYsaGwrOiNhMzc4ZmYsaW5mbzojNGQ0ZDRkLG1hcmtlcjojNjFmZmNhLHByb21wdDojYTI3N2ZmLHNwaW5uZXI6I2ZmNjc2Nyxwb2ludGVyOiNhMjc3ZmYsaGVhZGVyOiM0ZDRkNGQsYm9yZGVyOiM0ZDRkNGQsc2VwYXJhdG9yOiM0ZDRkNGQsc2Nyb2xsYmFyOiM0ZDRkNGQscHJldmlldy1ib3JkZXI6IzRkNGQ0ZCxwcmV2aWV3LXNjcm9sbGJhcjojNGQ0ZDRkLGxhYmVsOiNhZWFlYWUscXVlcnk6I2VkZWNlZSxkaXNhYmxlZDojNGQ0ZDRkIn0=
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#d0d0d0,fg+:#ffffff,bg:#21202e,bg+:#36344a
   --color=hl:#a277ff,hl+:#a378ff,info:#4d4d4d,marker:#61ffca
@@ -56,7 +76,6 @@ bindkey -r '^N'
 # --------------------------------------
 
 touch ~/.hushlogin
-
 
 # Load asdf
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh

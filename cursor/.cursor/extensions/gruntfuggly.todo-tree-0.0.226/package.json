@@ -1201,7 +1201,8 @@
 		"installedTimestamp": 1731776824131,
 		"pinned": false,
 		"preRelease": false,
-		"source": "gallery"
+		"source": "gallery",
+		"size": 1621167
 	},
 	"dependencies": {
 		"@primer/octicons": "^17.0.0",
