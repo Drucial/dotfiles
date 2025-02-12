@@ -59,7 +59,7 @@ touch ~/.hushlogin
 
 
 # Load asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # pnpm
 export PNPM_HOME="/Users/drucial/Library/pnpm"

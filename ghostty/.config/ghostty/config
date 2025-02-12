@@ -1,0 +1,16 @@
+theme = ChallengerDeep
+
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 14
+
+background-opacity = 0.8
+background-blur-radius = 20
+window-decoration = true
+window-padding-x = 6
+window-padding-y = 4
+window-padding-balance = true
+macos-titlebar-style = hidden
+quit-after-last-window-closed = true
+
+keybind = global:unconsumed:cmd+r=reload_config
+keybind = global:unconsumed:cmd+e=open_config
