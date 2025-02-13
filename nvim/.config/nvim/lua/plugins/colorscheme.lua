@@ -15,6 +15,8 @@ return {
         highlight WinSeparator guifg=NvimDarkGrey4 guibg=NONE
         highlight LspReferenceText guibg=NONE
         highlight SnacksPickerTitle guifg=NvimBlue
+
+        " highlight TSNone guifg=#ffca85
       ]])
     end,
   },
