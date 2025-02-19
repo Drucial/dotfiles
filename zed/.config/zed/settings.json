@@ -1,0 +1,139 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // AI Stuff
+  "icon_theme": "Zed (Default)",
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+
+  // Prefs
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "ensure_final_newline_on_save": true,
+
+  // Editor
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Aura Soft Dark"
+  },
+  "centered_layout": {
+    "left_padding": 0.1,
+    "right_padding": 0.1
+  },
+  "tab_bar": {
+    "show": false,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "relative_line_numbers": true,
+
+  // Terminal
+  "terminal": {
+    "font_size": 12,
+    "font_family": "JetBrainsMono Nerd Font",
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "button": false
+  },
+
+  // Panels
+  "project_panel": {
+    "button": false,
+    "scrollbar": {
+      "show": "never"
+    },
+    "indent_size": 12,
+    "indent_guides": {
+      "show": "never"
+    }
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.bundle",
+    "**/.ruby-lsp",
+    "**/.byebug_history",
+    "**/node_modules",
+    "**/dist",
+    "**/.turbo",
+    "**/yarn-error.log"
+  ],
+
+  "collaboration_panel": {
+    "button": false,
+    "scrollbar": {
+      "show": "never"
+    },
+    "indent_size": 12,
+    "indent_guides": {
+      "show": "never"
+    }
+  },
+
+  "outline_panel": {
+    "button": false,
+    "scrollbar": {
+      "show": "never"
+    },
+    "indent_size": 12,
+    "indent_guides": {
+      "show": "never"
+    }
+  },
+
+  "languages": {
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "rubocop", "!solargraph", "..."]
+    }
+  },
+  "lsp": {
+    "rubocop": {
+      "initialization_options": {
+        "safeAutocorrect": false
+      }
+    },
+    "ruby-lsp": {
+      "settings": {
+        "use_bundler": true
+      },
+      "initialization_options": {
+        "enabledFeatures": {
+          // This disables diagnostics
+          "diagnostics": false
+        }
+      }
+    }
+  }
+}
